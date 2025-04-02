@@ -1,205 +1,411 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="zh-CN" class="scroll-smooth">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>小萌的个人主页</title>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f5f5f5;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    header {
-        text-align: center;
-        padding: 3rem 0;
-        background: linear-gradient(135deg, #6366f1, #3b82f6);
-        color: white;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-    }
-
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        border: 4px solid white;
-        background-color: #e5e7eb;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-        opacity: 0.9;
-    }
-
-    section {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-        color: #4f46e5;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
-    }
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .skill-item {
-        background: #f3f4f6;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-    }
-
-    .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .project-card {
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        padding: 1.5rem;
-        transition: transform 0.2s;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .contact-info {
-        text-align: center;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .social-links a {
-        color: #4f46e5;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border: 1px solid #4f46e5;
-        border-radius: 20px;
-        transition: all 0.3s;
-    }
-
-    .social-links a:hover {
-        background: #4f46e5;
-        color: white;
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 1rem;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张晓檬 - 个人简历</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom Styles */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        header {
-            padding: 2rem 1rem;
+        /* Subtle Load Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Staggered animation for list items */
+        .section-content > * {
+            opacity: 0;
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
+        /* Card hover effect */
+        .card-hover {
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .card-hover:hover {
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            font-size: 2rem;
+        /* Dark mode scrollbar styling */
+        .dark ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
-    }
-</style>
+        .dark ::-webkit-scrollbar-track {
+            background: #1a202c; /* gray-800 */
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #4a5568; /* gray-600 */
+            border-radius: 4px;
+            border: 2px solid #1a202c; /* gray-800 */
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background-color: #718096; /* gray-500 */
+        }
+
+         /* Light mode scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7fafc; /* gray-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e0; /* gray-400 */
+            border-radius: 4px;
+            border: 2px solid #f7fafc; /* gray-100 */
+        }
+         ::-webkit-scrollbar-thumb:hover {
+            background-color: #a0aec0; /* gray-500 */
+        }
+
+
+    </style>
+    <script>
+        // Tailwind dark mode setup
+        const LS_KEY = 'color-scheme';
+        const SCHEME_ATTR = 'data-color-scheme';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyScheme(scheme) {
+            document.documentElement.classList.toggle('dark', scheme === 'dark');
+            document.documentElement.setAttribute(SCHEME_ATTR, scheme);
+        }
+
+        function getSavedScheme() {
+            return localStorage.getItem(LS_KEY);
+        }
+
+        function setSavedScheme(scheme) {
+            localStorage.setItem(LS_KEY, scheme);
+        }
+
+        function getSystemScheme() {
+            return prefersDark.matches ? 'dark' : 'light';
+        }
+
+        // Apply initial scheme
+        const savedScheme = getSavedScheme();
+        applyScheme(savedScheme || getSystemScheme());
+
+        // Watch for system changes
+        prefersDark.addEventListener('change', () => {
+            if (!getSavedScheme()) { // Only update if no user preference is saved
+                applyScheme(getSystemScheme());
+            }
+        });
+
+        // Function to toggle scheme
+        function toggleScheme() {
+            const currentScheme = document.documentElement.getAttribute(SCHEME_ATTR);
+            const newScheme = currentScheme === 'dark' ? 'light' : 'dark';
+            applyScheme(newScheme);
+            setSavedScheme(newScheme);
+        }
+
+         // Function for staggered fade-in animation
+         function applyFadeInAnimation() {
+            document.querySelectorAll('.section-content').forEach((section) => {
+                const elements = section.querySelectorAll(':scope > *');
+                elements.forEach((el, index) => {
+                    el.style.animation = `fadeIn 0.5s ease-out ${index * 0.08}s forwards`;
+                });
+            });
+            // Also animate the header and footer
+             document.querySelectorAll('.animate-on-load').forEach((el, index) => {
+                el.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+                 el.style.opacity = '0'; // Start hidden
+            });
+         }
+
+        // Apply animations when the DOM is ready
+        document.addEventListener('DOMContentLoaded', applyFadeInAnimation);
+
+    </script>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <img src="https://via.placeholder.com/150" alt="个人头像" class="profile-img">
-            <h1>张小萌</h1>
-            <p class="subtitle">全栈开发工程师 | AI 技术爱好者</p>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <div class="container mx-auto max-w-6xl px-4 py-8 md:py-16">
+
+        <!-- Header / Personal Info -->
+        <header class="mb-12 animate-on-load">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-1">张晓檬</h1>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400">iOS 高级开发工程师 | Flutter | 技术爱好者</p>
+                    <p class="text-base text-gray-500 dark:text-gray-500 mt-1">出生年份: 1991 | 状态: 未婚, 单身 | 可加班</p>
+                </div>
+                <button onclick="toggleScheme()" aria-label="切换深色/浅色模式" class="mt-4 md:mt-0 p-4 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 focus:ring-indigo-500 transition-all duration-200 shadow-sm">
+                    <i class="fas fa-sun dark:hidden text-2xl"></i>
+                    <i class="fas fa-moon hidden dark:inline text-2xl"></i>
+                </button>
+            </div>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-base">
+                <a href="tel:17600383816" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                    <i class="fas fa-phone w-4 text-center"></i>
+                    <span>17600383816 (微信同号)</span>
+                </a>
+                <a href="mailto:zxm_qwer@163.com" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                    <i class="fas fa-envelope w-4 text-center"></i>
+                    <span>zxm_qwer@163.com</span>
+                </a>
+                <a href="https://github.com/zhangxiaomeng1" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                    <i class="fab fa-github w-4 text-center"></i>
+                    <span>GitHub: zhangxiaomeng1</span>
+                </a>
+                <a href="https://www.jianshu.com/u/949e63975031" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                    <i class="fas fa-book w-4 text-center"></i>
+                    <span>简书 (1000万+字, 1800+文)</span>
+                </a>
+                 <a href="https://blog.csdn.net/zhangxiaomeng_01?type=blog" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                    <i class="fab fa-cuttlefish w-4 text-center"></i> <!-- Using Cuttlefish for CSDN -->
+                    <span>CSDN (排名 ~1750, 25万+访问)</span>
+                </a>
+            </div>
         </header>
 
-        <section>
-            <h2>关于我</h2>
-            <p>我是一名充满热情的软件开发者，专注于Web开发和人工智能技术。我热爱学习新技术，并致力于创造优秀的用户体验。在过去的几年里，我参与开发了多个成功的项目，积累了丰富的实战经验。</p>
-        </section>
+        <!-- Main Content Sections -->
+        <main class="space-y-12">
 
-        <section>
-            <h2>技能专长</h2>
-            <div class="skills-grid">
-                <div class="skill-item">前端开发</div>
-                <div class="skill-item">后端开发</div>
-                <div class="skill-item">人工智能</div>
-                <div class="skill-item">数据分析</div>
-                <div class="skill-item">项目管理</div>
-                <div class="skill-item">UI/UX设计</div>
-            </div>
-        </section>
+            <!-- Professional Skills -->
+            <section id="skills" class="fade-in">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">专业技能</h2>
+                <div class="section-content space-y-4 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 text-lg">
+                    <p><i class="fas fa-code w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">主要语言/框架:</strong> 掌握 OC，熟练 Flutter、Python。了解 Swift、SwiftUI、鸿蒙 (高级认证)、安卓、Shell、H5、Vue。可进行简单项目开发。熟练使用 Trace AI 编程工具。</p>
+                    <p><i class="fas fa-paint-brush w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">设计/多媒体:</strong> 了解 PS, Sketch, 剪映，可进行简单修图和视频剪辑。</p>
+                    <p><i class="fas fa-brain w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">iOS 核心:</strong> 熟悉内存管理、Runtime、RunLoop (常驻线程)。</p>
+                     <p><i class="fas fa-robot w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">自动化/逆向:</strong> iOS 自动化数据抓取、Python 脚本 (模拟点击/截图)。iOS 逆向 (Frida, usbmuxd, Class-Dump, Theos, Dumpdecrypted, iFunBox)，破解今日头条 (获取 URL/HTML/JSON)。</p>
+                    <p><i class="fas fa-cubes w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">工程化/工具:</strong> CocoaPods (私有/公有库)、EasyBox 多仓库管理、iOS 组件化 (Target-Action)、iOS 应用开发/发布流程、Mac/Xcode/AppCode。</p>
+                    <p><i class="fas fa-sitemap w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">架构/设计模式:</strong> MVC, MVVM, 单例, 代理, 通知。</p>
+                    <p><i class="fas fa-draw-polygon w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">图形/动画:</strong> CoreText, CoreGraphics, CoreAnimation。</p>
+                    <p><i class="fas fa-network-wired w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">网络:</strong> Socket 编程, TCP/UDP, HTTP/HTTPS。</p>
+                    <p><i class="fas fa-layer-group w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">多线程/存储:</strong> NSThread, GCD, NSOperation。数据持久化 (归档, 数据库, 文件, 偏好设置)。</p>
+                    <p><i class="fas fa-database w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">大数据/AI:</strong> 熟练 Hadoop 处理海量数据，了解 Spark、AB 实验原理 (ttest)。本地部署 Deepseek 大模型，了解大模型使用。</p>
+                    <p><i class="fas fa-bug w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">调试/质量:</strong> 熟悉 iOS 开发调试工具，注重代码质量与效率。</p>
+                </div>
+            </section>
 
-        <section>
-            <h2>项目经历</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>AI助手开发</h3>
-                    <p>开发了一个基于深度学习的智能助手系统，提供自然语言处理和对话功能。</p>
-                </div>
-                <div class="project-card">
-                    <h3>电商平台优化</h3>
-                    <p>负责电商平台的性能优化，提升了页面加载速度和用户体验。</p>
-                </div>
-                <div class="project-card">
-                    <h3>数据可视化平台</h3>
-                    <p>设计并实现了一个实时数据可视化平台，支持多维度数据分析。</p>
-                </div>
-            </div>
-        </section>
+            <!-- Work Experience -->
+            <section id="experience" class="fade-in">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">工作经历</h2>
+                <div class="section-content space-y-8">
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2022/11 – 至今</p>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">个人发展 & 学习</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">陪父母 | 与百度履行合同官司 | 自学鸿蒙、安卓、SwiftUI、AI编程等</p>
+                        <!-- No detailed description needed here based on input -->
+                    </div>
 
-        <section class="contact-info">
-            <h2>联系方式</h2>
-            <p>欢迎通过以下方式与我联系：</p>
-            <div class="social-links">
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Email</a>
-            </div>
-        </section>
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2018/06 – 2022/11</p>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">北京百度网讯科技有限公司</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">iOS 高级开发工程师</p>
+                        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                            <ul>
+                                <li>参与 APP 端和 Flutter 跨平台框架的需求分析、技术预研/评审、框架搭建、业务桥接与开发。</li>
+                                <li>独立开发滚动截长图 APP (OC)。</li>
+                                <li>独立开发 Flutter 项目：多人语音转文字 APP。</li>
+                                <li>独立开发 AB 实验 iOS SDK。</li>
+                                <li>参与开发元推 APP、元搜 APP。</li>
+                                <li>从 0 到 1 建设流程化全站日志处理方案及多维分析方法工具。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2015/10 – 2018/05</p>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">北京证大向上金融信息服务有限公司</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">iOS 高级开发工程师</p>
+                        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                            <ul>
+                                <li>独立参与多款 App 开发，担任几何股票移动端负责人。</li>
+                                <li>独立负责客户端 iOS 系统软件开发与维护。</li>
+                                <li>与产品、后端负责人沟通合作，参与需求分析。</li>
+                                <li>负责 H5 和安卓的任务安排、项目排期。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Experience -->
+            <section id="projects" class="fade-in">
+                 <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">项目经验</h2>
+                <div class="section-content grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project Card Template -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">X 自主 <span class="text-xs font-normal bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full ml-1">独立开发</span> <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外上架</span></h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">无需联网的个人人生时间记录仪。集倒计时、图文离线存储、图片拼接、定时提醒于一体。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术预研/评审, 框架搭建, 流程设计。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>DP 算法 + 图片指纹优化拼接效率与准确性。</li>
+                            <li>自动缓冲池 + 内存压缩优化 (内存限制 50M)。</li>
+                            <li>多线程 + 边录边拼接，速度提升 50%+。</li>
+                            <li>本地数据库处理 (分页查询, CRUD, 统计)。</li>
+                            <li>AppStore 内购。</li>
+                            <li>华为鸿蒙云数据/云函数作为服务端。</li>
+                        </ul>
+                    </div>
+
+                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">元推 APP <span class="text-xs font-normal bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-0.5 rounded-full ml-1">百度内部</span> <span class="text-xs font-normal bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full ml-1">手百二次开发</span></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">工具类 App，满足用户 Feed 推荐评估需求，提高效率，促进手百 Feed 升级优化。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术预研/评审, 框架搭建, 流程设计。</p>
+                        <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                           <li>EasyBox 管理多仓库组件/二进制，提高编译和团队开发速度。</li>
+                           <li>封装基础工具和组件，提高二次开发效率。</li>
+                           <li>利用安卓端云手机功能模拟真实环境，提高评估效率。</li>
+                           <li>Shell 脚本自动打包企业包。</li>
+                        </ul>
+                    </div>
+
+                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">滚动截长图 <span class="text-xs font-normal bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full ml-1">独立开发</span> <span class="text-xs font-normal bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-0.5 rounded-full ml-1">已下架</span></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">工具类 App，解决 iOS 端评估无法长截图问题。发布 4 版本，2021 年使用 52 万+, 下载 10 万+ (百度相关 App 排 25/53)。</p>
+                        <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术预研/评审, 框架搭建, 流程设计。</p>
+                        <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong> (同 "X 自主" 项目)</p>
+                         <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>DP 算法 + 图片指纹优化拼接效率与准确性。</li>
+                            <li>自动缓冲池 + 内存压缩优化 (内存限制 50M)。</li>
+                            <li>多线程 + 边录边拼接，速度提升 50%+。</li>
+                            <li>本地数据库处理 (分页查询, CRUD, 统计)。</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">逆向破解今日头条 <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">负责人</span></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">逆向今日头条，动态注入搜索 query，获取截图、URL 和 HTML/JSON 文件。完成 iOS 自动化抓取流程 0->1 建设 (2021.12.27)。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 项目负责人。</p>
+                         <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                         <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                           <li>逆向破解 IPA。</li>
+                           <li>IPA 二次打包。</li>
+                           <li>寻找 Hook 点。</li>
+                           <li>动态库注入。</li>
+                        </ul>
+                    </div>
+
+                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Flutter: 多人语音转文字 APP <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">负责人</span> <span class="text-xs font-normal bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 px-2 py-0.5 rounded-full ml-1">Flutter</span></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">具备语音转写文字功能，标注说话者身份。用于会议、沟通、访谈等场景。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 项目负责人。</p>
+                         <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>音频录入与播放。</li>
+                            <li>WebSocket 实时发送音频流，获取百度语音转写结果。</li>
+                            <li>系统文件读取、上传文件/图片。</li>
+                        </ul>
+                    </div>
+
+                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Flutter: 元搜 APP <span class="text-xs font-normal bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 px-2 py-0.5 rounded-full ml-1">Flutter</span></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">提供跨搜索引擎搜索功能，一次搜索多引擎结果。节省人力成本 (3 人天 -> 1 人天)。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术调研/评审, 框架搭建, 业务桥接。</p>
+                         <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                         <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>rxdart 响应式编程 (MVVM)。</li>
+                            <li>provider 状态管理。</li>
+                            <li>修改系统键盘，保持 Android/iOS 样式一致。</li>
+                            <li>自定义 GridView 实现拖拽排序。</li>
+                            <li>Web 页面 JS 注入模拟点击。</li>
+                            <li>cached_network_image 图片缓存。</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">AB 实验 iOS SDK 开发</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">通过小流量上线 (SDK 获取抽样分组)，支持多版本页面，分析用户行为 (SDK 获取数据)，挖掘用户偏好，使产品迭代有据可依。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术预研/评审, 框架搭建, 流程设计。</p>
+                         <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                         <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>组件化开发模式 (URL Router)。</li>
+                            <li>支持手动打点收集页面展现、停留时间、按钮点击。</li>
+                            <li>自定义 FMDB 存储打点日志。</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">全站分析 (数据挖掘)</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">为外部 PC/Wise 提供数据支持，优化体验/UI/策略，提高 PV/使用频率。为贝壳、达内等 50+ 客户提供策略模型，提升 5% 转化率。</p>
+                         <p class="text-sm mb-1"><strong class="font-medium">项目职责:</strong> 日志打点分析, 技术预研/评审, 框架搭建, 流程设计。</p>
+                         <p class="text-sm mb-3"><strong class="font-medium">主要技术:</strong></p>
+                         <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>Hadoop 处理海量数据，Python 脚本聚合。</li>
+                            <li>按 pvid, timestamp, domain 排序；内存中用字典聚合相同 pvid 数据。</li>
+                            <li>支持指标: pv, 有点, 点击率, 平均停留时间, 首次点击耗时等。</li>
+                            <li>支持多维数据分析。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="fade-in">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">教育经历</h2>
+                 <div class="section-content bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">华北理工大学 轻工学院</h3>
+                            <p class="text-lg text-gray-600 dark:text-gray-400">机械设计制造及其自动化 | 本科</p>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 flex-shrink-0 ml-4">2011/09 – 2015/06</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Self Evaluation -->
+            <section id="about" class="fade-in">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">自我评价</h2>
+                <div class="section-content space-y-4 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 text-lg text-gray-700 dark:text-gray-300">
+                   <p><i class="fas fa-user-check w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">核心素质:</strong> 自律能力强，有较强的团队意识、自学能力、责任感和抗压能力。</p>
+                   <p><i class="fas fa-heartbeat w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">爱运动:</strong> 成功减肥 40+斤，坚持跑步，Keep 总运动分钟数 11万+。</p>
+                   <p><i class="fas fa-book-reader w-5 mr-2 text-indigo-500"></i><strong class="font-medium text-gray-800 dark:text-gray-100">爱学习:</strong></p>
+                   <ul class="list-disc list-inside ml-7 space-y-1">
+                       <li>简书创作者: 日更 1000 天+, 码字 1 千万+, 粉丝 500+。</li>
+                       <li>CSDN: 总排名 ~1750, 访问 25 万+。</li>
+                       <li>自学 SwiftUI 和鸿蒙开发 (高级认证)，完成番茄计时器和仿购物类 App Demo。</li>
+                       <li>参与两个开源项目开发 (Vue 和 Java)，学以致用。</li>
+                       <li>熟练使用剪映做视频剪辑, PS 修图。</li>
+                   </ul>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-base text-gray-500 dark:text-gray-400 animate-on-load">
+            <p>感谢访问我的个人简历!</p>
+             <p>&copy; <span id="currentYear"></span> 张晓檬. 保留所有权利.</p>
+        </footer>
+         <script>
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        </script>
+
     </div>
+
 </body>
 </html>
