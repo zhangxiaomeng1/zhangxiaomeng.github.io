@@ -30,7 +30,7 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # 如果请求根路径，重定向到home.html
         if self.path == '/':
-            self.path = '/home.html'
+            self.path = '/index.html'
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 # 查找可用端口
