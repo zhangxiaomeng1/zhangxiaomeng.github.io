@@ -24,12 +24,16 @@
         background-color: #fbfbfd;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
     }
 
     .container {
         max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
+        width: 100%;
+        margin: 2rem auto;
+        padding: 0 2rem;
     }
 
     header {
@@ -142,6 +146,14 @@
         justify-content: center;
         gap: 1rem;
         margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-links img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
 
     .social-links a {
