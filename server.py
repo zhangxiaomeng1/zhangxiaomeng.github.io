@@ -4,8 +4,8 @@ import os
 import socket
 import sys
 
-# 尝试不同的端口，从8001开始
-PORT = 8001
+# 尝试不同的端口，从8010开始
+PORT = 8010
 
 # 尝试查找可用端口
 def find_free_port(start_port):
