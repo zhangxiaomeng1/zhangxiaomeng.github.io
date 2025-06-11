@@ -1,53 +1,39 @@
-import http.server
-import socketserver
+# -*- coding: UTF-8 -*-
+from flask import Flask, jsonify
+import subprocess
 import os
-import socket
-import sys
+import threading
+import logging
+import glob
+from datetime import datetime
+import psutil
 
-# 尝试不同的端口，从8010开始
-PORT = 8010
+# 配置日志记录
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
-# 尝试查找可用端口
-def find_free_port(start_port):
-    port = start_port
-    max_port = start_port + 20  # 最多尝试20个端口
-    
-    while port < max_port:
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+if __name__ == '__main__':
+    # 关闭已存在的服务器进程
+    for proc in psutil.process_iter(['pid', 'name']):
         try:
-            # 尝试绑定端口
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.bind(('', port))
-                return port
-        except OSError:
-            # 端口被占用，尝试下一个
-            port += 1
-    
-    # 如果所有端口都被占用，抛出异常
-    raise OSError(f"无法找到可用端口，从{start_port}到{max_port-1}的所有端口都被占用")
-
-# 自定义处理器，将根路径请求重定向到home.html
-class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        # 如果请求根路径，重定向到home.html
-        if self.path == '/':
-            self.path = '/index.html'
-        return http.server.SimpleHTTPRequestHandler.do_GET(self)
-
-# 查找可用端口
-try:
-    PORT = find_free_port(PORT)
-    print(f"找到可用端口: {PORT}")
-except OSError as e:
-    print(f"错误: {e}")
-    sys.exit(1)
-
-try:
-    with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
-        print(f"Server running at http://localhost:{PORT}")
-        print(f"访问 http://localhost:{PORT} 可以看到导航页面")
-        httpd.serve_forever()
-except KeyboardInterrupt:
-    print("\n服务器已停止")
-except Exception as e:
-    print(f"服务器启动失败: {e}")
-    sys.exit(1)
+            # 获取进程的所有连接
+            connections = proc.connections()
+            for conn in connections:
+                if hasattr(conn, 'laddr') and hasattr(conn.laddr, 'port') and conn.laddr.port == 8008:
+                    proc.kill()
+                    logging.info(f'关闭已存在的服务器进程: {proc.pid}')
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.Error):
+            continue
+    # 设置static_folder为当前目录，这样可以直接访问index.html
+    app.static_folder = os.path.dirname(os.path.abspath(__file__))
+    logging.info('服务器正在启动...')
+    app.run(host='0.0.0.0', port=8008)
