@@ -1,261 +1,312 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>阳明AGI的个人主页</title>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
-        line-height: 1.6;
-        color: #1d1d1f;
-        background-color: #fbfbfd;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        justify-content: center;
-        min-height: 100vh;
-    }
-
-    .container {
-        max-width: 1200px;
-        width: 100%;
-        margin: 2rem auto;
-        padding: 0 2rem;
-    }
-
-    header {
-        text-align: center;
-        padding: 3rem 0;
-        background: linear-gradient(135deg, #0066cc, #2d88ff);
-        color: white;
-        border-radius: 20px;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        transition: transform 0.3s ease;
-    }
-
-    header:hover {
-        transform: translateY(-5px);
-    }
-
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        border: 4px solid white;
-        background-color: #e5e7eb;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-        opacity: 0.9;
-    }
-
-    section {
-        background: white;
-        padding: 2rem;
-        border-radius: 20px;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-    }
-
-    section:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-
-    h2 {
-        color: #4f46e5;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
-    }
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .skill-item {
-        background: #f5f5f7;
-        padding: 1.2rem;
-        border-radius: 12px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .skill-item:hover {
-        background: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .project-card {
-        border: 1px solid rgba(0,0,0,0.1);
-        border-radius: 16px;
-        padding: 1.8rem;
-        transition: all 0.3s ease;
-        background: white;
-        text-align: center;
-        text-decoration: none;
-        color: #4f46e5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-
-    .contact-info {
-        text-align: center;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-    }
-
-    .social-links img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    .social-links a {
-        color: #0066cc;
-        text-decoration: none;
-        padding: 0.8rem 1.5rem;
-        border: 1px solid #0066cc;
-        border-radius: 25px;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .social-links a:hover {
-        background: #0066cc;
-        color: white;
-        box-shadow: 0 4px 15px rgba(0,102,204,0.3);
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 1rem;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳明AGI的个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a84ff',
+                        secondary: '#f5f5f7',
+                        accent: '#6e6e73',
+                        dark: '#111111',
+                        darker: '#000000',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-
-        header {
-            padding: 2rem 1rem;
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .glow {
+                box-shadow: 0 0 15px rgba(10, 132, 255, 0.5);
+            }
+            .text-glow {
+                text-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .card-shadow {
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
         }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-        }
-
-        h1 {
-            font-size: 2rem;
-        }
-    }
-</style>
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <img src="images/1合集封面.jpeg" alt="个人头像" class="profile-img">
-            <h1>阳明AGI</h1>
-            <p class="subtitle"> 投资人 | 自媒体博主 | X长截图、X事自己做主工具APP创始人 </p>
-        </header>
+<body class="font-inter bg-darker text-secondary min-h-screen">
+    <!-- 顶部渐变 -->
+    <div class="fixed top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+        <!-- 导航栏 -->
+        <nav class="flex justify-between items-center mb-16">
+            <div class="text-2xl font-bold text-primary">阳明AGI</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-secondary hover:text-primary transition-colors">关于</a>
+                <a href="#skills" class="text-secondary hover:text-primary transition-colors">技能</a>
+                <a href="#projects" class="text-secondary hover:text-primary transition-colors">项目</a>
+                <a href="#contact" class="text-secondary hover:text-primary transition-colors">联系</a>
+            </div>
+            <button class="md:hidden text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
 
-        <section>
-            <h2>关于我</h2>
-            <div class="space-y-4 text-slate-600 dark:text-slate-300">
-                <p>
-                    简书和CSDN创作者，分享技术文章累计字数1000万+，访问量25万+。
+        <!-- 英雄区域 -->
+        <div class="flex flex-col md:flex-row items-center justify-between mb-20">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-secondary">
+                    你好，我是<span class="text-primary text-glow">阳明AGI</span>
+                </h1>
+                <p class="text-xl text-accent mt-6 max-w-lg">
+                    投资人 | 自媒体博主 | X长截图、X事自己做主工具APP创始人
                 </p>
-                <p>
-                    前百度高级工程师
-                </p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover-scale">
+                        联系我
+                    </a>
+                    <a href="#projects" class="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 px-8 py-3 rounded-full font-medium transition-all duration-300">
+                        查看项目
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/3 relative">
+                <div class="relative z-10 rounded-full overflow-hidden border-4 border-primary/30 glow w-64 h-64 md:w-80 md:h-80">
+                    <img src="images/1合集封面.jpeg" alt="阳明AGI头像" class="w-full h-full object-contain">
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+
+        <!-- 关于我 -->
+        <section id="about" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 flex items-center">
+                <i class="fa fa-user-circle mr-3 text-primary"></i>关于我
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-dark rounded-2xl p-8 card-shadow hover-scale">
+                    <p class="text-lg leading-relaxed mb-6">
+                        简书和CSDN创作者，分享技术文章累计字数1000万+，访问量25万+。
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        前百度高级工程师，现专注于AI赋能的项目投资和自媒体创作，致力于帮助更多人掌握技术和投资知识。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-8 card-shadow hover-scale">
+                    <h3 class="text-xl font-bold mb-4 text-primary">我的使命</h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        通过技术和投资，帮助更多人实现自我价值，创造美好未来。
+                    </p>
+                    <h3 class="text-xl font-bold mb-4 text-primary">我的愿景</h3>
+                    <p class="text-lg leading-relaxed">
+                        成为连接技术与商业的桥梁，推动创新和社会进步。
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>技能专长</h2>
-            <div class="skills-grid">
-                <div class="skill-item">项目管理</div>
-                <div class="skill-item">AI赋能</div>
-                <div class="skill-item">数据分析</div>
-                <div class="skill-item">全栈工程师</div>
-                <div class="skill-item">设计与视频剪辑</div>
+        <!-- 技能专长 -->
+        <section id="skills" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 flex items-center">
+                <i class="fa fa-code mr-3 text-primary"></i>技能专长
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-tasks text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">项目管理</h3>
+                    </div>
+                    <p class="text-accent">
+                        拥有丰富的项目管理经验，能够高效组织团队，确保项目按时高质量完成。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-robot text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">AI赋能</h3>
+                    </div>
+                    <p class="text-accent">
+                        深入理解人工智能技术，能够将AI应用于不同领域，创造实际价值。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-chart-line text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">数据分析</h3>
+                    </div>
+                    <p class="text-accent">
+                        擅长数据挖掘和分析，能够从海量数据中提取有价值的信息和见解。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-laptop-code text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">全栈开发</h3>
+                    </div>
+                    <p class="text-accent">
+                        具备前后端开发能力，能够独立开发完整的Web应用和移动应用。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-film text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">设计剪辑</h3>
+                    </div>
+                    <p class="text-accent">
+                        熟练掌握设计和视频剪辑工具，能够创作出高质量的视觉内容。
+                    </p>
+                </div>
+                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                            <i class="fa fa-rocket text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">创业投资</h3>
+                    </div>
+                    <p class="text-accent">
+                        关注科技创新领域的创业项目，提供资金支持和战略指导。
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- <section>
-            <h2>项目经历(点击下面按钮可查看详情)</h2>
-            <div class="projects">
-                <a href="personGithub.html" class="project-card">简历主页</a>
-                <a href="me.html" class="project-card">我</a>
-                <a href="itms-apps://itunes.apple.com/app/id1610261169" class="project-card">AppStore项目:X自主(未知的事情自己做主，选自己所爱，爱自己所选)</a> -->
-                <!-- <div class="project-card">
-                    <h3>数据可视化平台</h3>
-                    <p>设计并实现了一个实时数据可视化平台，支持多维度数据分析。</p>
-                </div> -->
-            <!-- </div>
-        </section> --> 
-
-        <section class="contact-info">
-            <h2>联系方式</h2>
-            <div class="social-links">
-                <img src="images/微信公众号.png" alt="微信公众号" style="width: 472 px; height: 144px; display: block; margin: 0 auto 5px; border-radius: 8px;">
-            </div>
-            <div class="social-links">
-                <a href="https://www.jianshu.com/u/949e63975031" class="nav-link">简书</a>
-                <a href="https://blog.csdn.net/zhangxiaomeng_01?type=blog" class="nav-link">CSDN</a>
-                <a href="https://github.com/zhangxiaomeng1" class="nav-link">GitHub</a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAA5hXbGHEbkyQcOXYDNQ-snbJykASHh0o2Z1S2trvFIR0?from_tab_name=main" class="nav-link">抖音</a>
-                <a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAARS8_bDKRrM3VQ3xbA7hHIDjca6-93UmDZIj3EmXxep4/?source=feed&log_from=766acf4c2d3c88_1744085968383" class="nav-link">头条</a>  
-                <a href="https://www.xiaohongshu.com/user/profile/65a92ac40000000008032f68" class="nav-link">小红书</a>
-                <a href="https://space.bilibili.com/565730395" class="nav-link">哔哩哔哩</a>
-                <a href="personGithub.html" class="project-card">简历主页</a>
-                <!-- <a href="me.html" class="project-card">我</a> -->
+        <!-- 项目经历 -->
+        <section id="projects" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 flex items-center">
+                <i class="fa fa-briefcase mr-3 text-primary"></i>项目经历
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-dark rounded-2xl overflow-hidden card-shadow group hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/seed/project1-dark/600/400" alt="X长截图工具" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">X长截图工具APP</h3>
+                        <p class="text-accent mb-4">iOS平台上的长截图应用，帮助用户轻松截取长页面内容。</p>
+                        <a href="itms-apps://itunes.apple.com/app/id6745420963" class="inline-flex items-center text-primary hover:text-primary/80">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-2xl overflow-hidden card-shadow group hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/seed/project2-dark/600/400" alt="X事自己做主" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">X事自己做主工具APP</h3>
+                        <p class="text-accent mb-4">隐私保护器，作为一款无需联网的人生记录仪，完美解决你的困扰。它能 7*24 小时不间断记录各类重要事件。</p>
+                        <!-- <p class="text-accent mb-4">决策辅助工具APP，通过数据分析和AI算法，帮助用户做出更明智的决策。</p> -->
+                        <a href="itms-apps://itunes.apple.com/app/id1610261169" class="inline-flex items-center text-primary hover:text-primary/80">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- 联系方式 -->
+        <section id="contact" class="mb-16">
+            <h2 class="text-3xl font-bold mb-10 flex items-center">
+                <i class="fa fa-address-card mr-3 text-primary"></i>联系方式
+            </h2>
+            <div class="bg-dark rounded-2xl p-8 md:p-12 card-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">关注我的社交媒体</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                                    <i class="fa fa-weixin text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">微信公众号</div>
+                                    <!-- <div class="text-accent text-sm">扫码关注获取最新动态</div> -->
+                                    <img src="images/微信公众号.png" alt="微信公众号" style="width: 472 px; height: 144px; display: block; margin: 0 auto 5px; border-radius: 8px;">
+                                </div>
+                            </a>
+                            <a href="https://github.com/zhangxiaomeng1" class="flex items-center p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                                    <i class="fa fa-github text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">GitHub</div>
+                                    <div class="text-accent text-sm">查看我的开源项目</div>
+                                </div>
+                            </a>
+                            <a href="mailto:y921996026@q" class="flex items-center p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Email</div>
+                                    <div class="text-accent text-sm">921996026@qq</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">其他平台</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="https://www.jianshu.com/u/949e63975031" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-book text-primary text-2xl mb-2"></i>
+                                <div>简书</div>
+                            </a>
+                            <a href="https://blog.csdn.net/zhangxiaomeng_01?type=blog" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-code text-primary text-2xl mb-2"></i>
+                                <div>CSDN</div>
+                            </a>
+                            <a href="https://www.douyin.com/user/MS4wLjABAAAA5hXbGHEbkyQcOXYDNQ-snbJykASHh0o2Z1S2trvFIR0?from_tab_name=main" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-music text-primary text-2xl mb-2"></i>
+                                <div>抖音</div>
+                            </a>
+                            <a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAARS8_bDKRrM3VQ3xbA7hHIDjca6-93UmDZIj3EmXxep4/?source=feed&log_from=766acf4c2d3c88_1744085968383" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-headphones text-primary text-2xl mb-2"></i>
+                                <div>头条</div>
+                            </a>
+                            <a href="https://www.xiaohongshu.com/user/profile/65a92ac40000000008032f68" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-picture-o text-primary text-2xl mb-2"></i>
+                                <div>小红书</div>
+                            </a>
+                            <a href="https://space.bilibili.com/565730395" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
+                                <i class="fa fa-play-circle text-primary text-2xl mb-2"></i>
+                                <div>哔哩哔哩</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="text-center text-accent py-8">
+            <p> ©2025 阳明AGI. 保留所有权利.</p>
+        </footer>
     </div>
 </body>
 </html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳明AGI - 投资人 | 企业顾问 | 内容创作者</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #0051d1;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --background: #fbfbfd;
+            --card: #ffffff;
+            --border: rgba(0, 0, 0, 0.05);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 80px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* 头部设计 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 0 60px;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 20%);
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.35rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            letter-spacing: -0.2px;
+        }
+        
+        /* 内容部分 */
+        section {
+            background: var(--card);
+            padding: 45px;
+            border-radius: 22px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: var(--primary);
+            position: relative;
+            padding-left: 22px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            height: 32px;
+            width: 5px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        h2 i {
+            margin-right: 15px;
+            font-size: 1.7rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        /* 关于我部分 */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            margin-top: 15px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 102, 204, 0.05);
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 102, 204, 0.08);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .stat-card:hover {
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .stat-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .stat-content p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* 技能部分 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .skill-card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.15);
+            border-color: rgba(0, 122, 255, 0.15);
+        }
+        
+        .skill-icon {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .skill-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* 联系方式部分 */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        
+        .qrcode-section {
+            flex: 0 0 320px;
+            background: rgba(0, 102, 204, 0.03);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 102, 204, 0.08);
+        }
+        
+        .qrcode-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 10px auto 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            overflow: hidden;
+        }
+        
+        .qrcode-placeholder::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, 
+                transparent 50%, rgba(255,255,255,0.1) 50%, 
+                rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+        }
+        
+        .qrcode-placeholder::after {
+            content: "阳明AGI";
+            position: absolute;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .social-platforms {
+            flex: 1;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .platform-item {
+            background: rgba(0, 102, 204, 0.05);
+            border-radius: 16px;
+            padding: 22px 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 102, 204, 0.08);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-item:hover {
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+        }
+        
+        .platform-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .platform-item:hover::before {
+            opacity: 1;
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .platform-item:hover .platform-icon {
+            transform: scale(1.2);
+        }
+        
+        .platform-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        /* 页脚部分 */
+        footer {
+            text-align: center;
+            padding: 50px 0 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 40px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .qrcode-section {
+                margin: 0 auto 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            header {
+                padding: 60px 0 40px;
+                border-radius: 0 0 20px 20px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 30px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid,
+            .skills-grid,
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            section {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部设计 -->
+        <header>
+            <div class="header-content">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>阳明AGI</h1>
+                <p class="subtitle">投资人 | 企业顾问 | 内容创作者 | X长截图和X事自己做主工具APP创始人</p>
+            </div>
+        </header>
+        
+        <!-- 关于我部分 -->
+        <section>
+            <h2><i class="fas fa-user"></i> 关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>简书和CSDN创作者，分享技术文章累计字数1000万+，访问量25万+。前百度高级工程师、自媒体博主，专注于前沿技术应用和AI赋能实践。</p>
+                    <p>作为X长截图和X事自己做主工具APP创始人，我致力于开发提升工作效率与个人生产力的智能工具，创造性地解决日常问题。</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>技术创作</h3>
+                                <p>累计字数超过1000万字，技术分享内容覆盖AI、数据分析和全栈开发</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>技术影响力</h3>
+                                <p>文章总访问量达25万+，深受开发者社区认可</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>创业经历</h3>
+                                <p>成功开发并推出两款实用性工具APP，帮助用户提升工作效率</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 技能部分 -->
+        <section>
+            <h2><i class="fas fa-code"></i> 技能专长</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>项目管理</h3>
+                    <p>全流程项目管理经验，精通敏捷开发和产品生命周期管理</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI赋能</h3>
+                    <p>AI应用解决方案设计与落地，大模型与AIGC应用实践</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>数据分析</h3>
+                    <p>数据驱动决策，精通数据处理、可视化与商业智能分析</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>全栈工程师</h3>
+                    <p>从前端到后端，完整的Web应用设计与开发能力</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>设计与视频剪辑</h3>
+                    <p>UI/UX设计能力，专业的视频制作与内容创作技能</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 联系方式部分 -->
+        <section>
+            <h2><i class="fas fa-envelope"></i> 联系方式</h2>
+            <div class="contact-container">
+                <div class="qrcode-section">
+                    <h3>微信公众号</h3>
+                    <div class="qrcode-placeholder"></div>
+                    <p>搜索公众号：X自主AGI</p>
+                </div>
+                
+                <div class="social-platforms">
+                    <p>关注我，探索更多技术干货与创新思考</p>
+                    <div class="platform-grid">
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <div class="platform-name">微信</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="platform-name">GitHub</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="platform-name">简书</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-blogger"></i>
+                            </div>
+                            <div class="platform-name">CSDN</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-douyin"></i>
+                            </div>
+                            <div class="platform-name">抖音</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="platform-name">头条</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-reddit"></i>
+                            </div>
+                            <div class="platform-name">小红书</div>
+                        </div>
+                        
+                        <div class="platform-item">
+                            <div class="platform-icon">
+                                <i class="fab fa-bilibili"></i>
+                            </div>
+                            <div class="platform-name">哔哩哔哩</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 阳明AGI 保留所有权利 | 投资人 | 企业顾问 | 内容创作者</p>
+    </footer>
+</body>
+</html>

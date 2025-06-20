@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>阳明AGI的个人主页</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: #1d1d1f;
+        background-color: #fbfbfd;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 2rem auto;
+        padding: 0 2rem;
+    }
+
+    header {
+        text-align: center;
+        padding: 3rem 0;
+        background: linear-gradient(135deg, #0066cc, #2d88ff);
+        color: white;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        transition: transform 0.3s ease;
+    }
+
+    header:hover {
+        transform: translateY(-5px);
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        border: 4px solid white;
+        background-color: #e5e7eb;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    section {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+    }
+
+    section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+        color: #4f46e5;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .skill-item {
+        background: #f5f5f7;
+        padding: 1.2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .skill-item:hover {
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 16px;
+        padding: 1.8rem;
+        transition: all 0.3s ease;
+        background: white;
+        text-align: center;
+        text-decoration: none;
+        color: #4f46e5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-links img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .social-links a {
+        color: #0066cc;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border: 1px solid #0066cc;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-links a:hover {
+        background: #0066cc;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0,102,204,0.3);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 1rem;
+        }
+
+        header {
+            padding: 2rem 1rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="images/1合集封面.jpeg" alt="个人头像" class="profile-img">
+            <h1>阳明AGI</h1>
+            <p class="subtitle"> 投资人 | 自媒体博主 | X长截图、X事自己做主工具APP创始人 </p>
+        </header>
+
+        <section>
+            <h2>关于我</h2>
+            <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                <p>
+                    简书和CSDN创作者，分享技术文章累计字数1000万+，访问量25万+。
+                </p>
+                <p>
+                    前百度高级工程师
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>技能专长</h2>
+            <div class="skills-grid">
+                <div class="skill-item">项目管理</div>
+                <div class="skill-item">AI赋能</div>
+                <div class="skill-item">数据分析</div>
+                <div class="skill-item">全栈工程师</div>
+                <div class="skill-item">设计与视频剪辑</div>
+            </div>
+        </section>
+
+        <!-- <section>
+            <h2>项目经历(点击下面按钮可查看详情)</h2>
+            <div class="projects">
+                <a href="personGithub.html" class="project-card">简历主页</a>
+                <a href="me.html" class="project-card">我</a>
+                <a href="itms-apps://itunes.apple.com/app/id1610261169" class="project-card">AppStore项目:X自主(未知的事情自己做主，选自己所爱，爱自己所选)</a> -->
+                <!-- <div class="project-card">
+                    <h3>数据可视化平台</h3>
+                    <p>设计并实现了一个实时数据可视化平台，支持多维度数据分析。</p>
+                </div> -->
+            <!-- </div>
+        </section> --> 
+
+        <section class="contact-info">
+            <h2>联系方式</h2>
+            <div class="social-links">
+                <img src="images/微信公众号.png" alt="微信公众号" style="width: 472 px; height: 144px; display: block; margin: 0 auto 5px; border-radius: 8px;">
+            </div>
+            <div class="social-links">
+                <a href="https://www.jianshu.com/u/949e63975031" class="nav-link">简书</a>
+                <a href="https://blog.csdn.net/zhangxiaomeng_01?type=blog" class="nav-link">CSDN</a>
+                <a href="https://github.com/zhangxiaomeng1" class="nav-link">GitHub</a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAA5hXbGHEbkyQcOXYDNQ-snbJykASHh0o2Z1S2trvFIR0?from_tab_name=main" class="nav-link">抖音</a>
+                <a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAARS8_bDKRrM3VQ3xbA7hHIDjca6-93UmDZIj3EmXxep4/?source=feed&log_from=766acf4c2d3c88_1744085968383" class="nav-link">头条</a>  
+                <a href="https://www.xiaohongshu.com/user/profile/65a92ac40000000008032f68" class="nav-link">小红书</a>
+                <a href="https://space.bilibili.com/565730395" class="nav-link">哔哩哔哩</a>
+                <a href="personGithub.html" class="project-card">简历主页</a>
+                <!-- <a href="me.html" class="project-card">我</a> -->
+            </div>
+        </section>
+    </div>
+</body>
+</html>
