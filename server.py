@@ -5,7 +5,7 @@ import socket
 import sys
 
 # 尝试不同的端口
-PORT = 8052
+PORT = 8053
 
 # 尝试查找可用端口
 def find_free_port(start_port):
