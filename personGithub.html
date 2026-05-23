@@ -153,8 +153,9 @@
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div>
                     <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-1">张晓檬</h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400">10年iOS高级开发工程师 | 独立开发者 | AGI终身学习者</p>
-                    <p class="text-base text-gray-500 dark:text-gray-500 mt-1">出生年份: 1991 | 男 </p>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400">10年+ iOS 高级开发工程师 | App 出海主力 | 独立开发者 | AGI 终身学习者</p>
+                    <p class="text-base text-gray-500 dark:text-gray-500 mt-1">出生年份: 1991 | 男 | 期望职位: iOS 高级开发 / iOS 技术专家 / App 出海技术负责人</p>
+                    <p class="text-base text-gray-700 dark:text-gray-300 mt-3 max-w-3xl leading-relaxed">10 年 iOS 开发经验，前百度高级工程师。擅长大型 iOS 项目架构设计、性能优化（内存/扫描速度均能做到 70%+ 提升）、GPU 图像处理（GPUImage + GLSL Shader）、AI 关键点集成（MediaPipe / Vision + CoreML）、PPG 信号处理算法、实时通讯（Agora RTM）、StoreKit 内购变现。近一年主导 4 款 iOS App 海外发行（覆盖欧美 / 东南亚 / 南亚），涵盖 AI 社交、AI 影像编辑、健康追踪、工具效率四大赛道，单 App 代码量 1.6 万 - 7 万行。</p>
                 </div>
                 <!-- <button onclick="toggleScheme()" aria-label="切换深色/浅色模式" class="mt-4 md:mt-0 p-4 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 focus:ring-indigo-500 transition-all duration-200 shadow-sm">
                     <i class="fas fa-sun dark:hidden text-2xl"></i>
@@ -196,9 +197,42 @@
                     <div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-mobile-alt w-5 mr-2 text-indigo-500"></i>移动端开发:</h3>
                         <ul class="list-disc list-inside ml-6 space-y-2 text-base">
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">iOS:</strong> 精通 Objective-C，深入理解其内存管理、Runtime及RunLoop机制。熟练运用 Swift 及 SwiftUI 进行APP开发。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">iOS:</strong> 精通 Objective-C，深入理解其内存管理、Runtime 及 RunLoop 机制；熟练运用 Swift 5+ / SwiftUI / UIKit 进行 App 开发；具备 Swift + OC 大型项目混编经验。</li>
                             <li><strong class="font-medium text-gray-800 dark:text-gray-100">跨平台:</strong> 具备完整的 Flutter 项目开发经验，从框架搭建到业务实现。</li>
                             <li><strong class="font-medium text-gray-800 dark:text-gray-100">新兴平台:</strong> 具备鸿蒙应用开发能力（已获高级认证），并有安卓开发经验。</li>
+                        </ul>
+                    </div>
+
+                    <!-- GPU 图像处理与 AI -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-image w-5 mr-2 text-indigo-500"></i>GPU 图像处理与 AI 集成:</h3>
+                        <ul class="list-disc list-inside ml-6 space-y-2 text-base">
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">GPU 渲染:</strong> 精通 GPUImage / OpenGL ES 2.0/3.0 / GLSL Fragment Shader 编写，自研 7 条滤镜链 + 370KB GLSL Shader 实现 60+ 变形参数实时渲染（2K 图像保持 60fps）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">AI 关键点检测:</strong> 熟练集成 MediaPipe Tasks Vision（身体 33 点 + 面部 478 点）、Vision + CoreML（人脸检测 + 特征向量提取）、AIFramework 本地模型部署。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">自研算法:</strong> 液化算法（RG16F 半浮点偏移纹理 + 冻结边界两阶段二分搜索）、双引擎去重（Vision + pHash 感知哈希）、黑眼圈去除算法（半边脸亮度权重 + 肤色定向混合）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">视频处理:</strong> AVAssetWriter 视频导出、AVPlayer + GPUImageMovie 实时预览、视频时间范围效果、卡尔曼滤波关键点平滑。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 信号处理与数学算法 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-wave-square w-5 mr-2 text-indigo-500"></i>信号处理与数学算法:</h3>
+                        <ul class="list-disc list-inside ml-6 space-y-2 text-base">
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">数字滤波:</strong> 二阶 Butterworth IIR 带通滤波器（biquad 双二阶节级联实现）、卡尔曼滤波器（部位差异化参数调优 + 异常值检测 + 变化率限制）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">PPG 算法:</strong> 自研 PPG 心率测量管线（30fps 摄像头采集 → 红色通道提取 → 滤波 → 自适应峰值检测 → MAD 异常值过滤），30 秒测量误差 ±3 bpm。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">健康指标:</strong> HRV 时域指标（RMSSD / SDNN）、Baevsky 改进压力指数（HR/HRV/年龄三因子加权 + 不匹配惩罚）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">DP 与图像算法:</strong> DP 动态规划长截图拼接、pHash 感知哈希（DCT 变换 + 汉明距离）、Union-Find 聚类、余弦相似度。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 实时通讯与商业化 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-comments-dollar w-5 mr-2 text-indigo-500"></i>实时通讯与商业化变现:</h3>
+                        <ul class="list-disc list-inside ml-6 space-y-2 text-base">
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">实时消息:</strong> Agora RTM SDK 三层消息分发架构（RTMService → MessageHandler → ViewController），三通道数据一致性方案（RTM 实时 + HTTP 兜底 + SQLite 持久化），message_id 唯一键去重。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">内购支付:</strong> StoreKit 1 双 SKU 订阅 + 终身买断 + 金币体系，@MainActor 线程安全 + NWPathMonitor 断网保护 + transactionIdentifier 防重入；月 ARPU $2.5+。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">广告变现:</strong> AdMob 插屏广告智能预加载、加载失败重试、VIP 用户跳过策略。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">数据分析:</strong> ThinkingData / LTThinkingSDK 用户行为分析、Adjust 移动归因、精细化漏斗埋点。</li>
                         </ul>
                     </div>
 
@@ -206,8 +240,10 @@
                     <div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-cubes w-5 mr-2 text-indigo-500"></i>架构与工程化:</h3>
                         <ul class="list-disc list-inside ml-6 space-y-2 text-base">
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">架构设计:</strong> 熟练应用 MVC、MVVM 设计模式、iOS组件化（Target-Action）、多仓库管理（EasyBox）。</li>
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">工程效率:</strong> 精通 CocoaPods 进行依赖管理，擅长运用 Shell 脚本实现自动化打包、发布流程。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">架构模式:</strong> 熟练应用 MVC、MVVM、MVVM-Service 分层架构、组件化（Target-Action / URL Router）、多仓库管理（EasyBox）、三级 JSON 菜单驱动架构。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">大文件治理:</strong> Swift Extension 按职责拆分大文件（12 个 Extension 拆分 6000+ 行控制器，覆盖 RTM/数据/UI/超时/埋点 7 大职责域）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">并发与防重入:</strong> Token 并发刷新（NSLock 互斥锁 + 请求队列批量重放）、AI 内容生成异步状态机（pending 字段 + RTM 回调 + 超时计时器三机制联动）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">工程效率:</strong> 精通 CocoaPods 依赖管理，擅长 Shell 脚本自动化打包发布。</li>
                         </ul>
                     </div>
 
@@ -215,25 +251,37 @@
                     <div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-brain w-5 mr-2 text-indigo-500"></i>核心技术:</h3>
                         <ul class="list-disc list-inside ml-6 space-y-2 text-base">
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">性能优化:</strong> 拥有丰富的性能调优经验，包括内存优化（自动缓冲池、内存压缩）、多线程编程（GCD, NSOperation）及算法优化（DP算法）等。</li>
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">UI与图形:</strong> 熟悉 CoreAnimation, CoreGraphics, CoreText 进行复杂UI绘制与高性能动画实现。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">性能优化:</strong> 大规模图片扫描性能优化（10000 张照片 5 分钟 → 1.5 分钟）、内存优化（500MB → 150MB，自动缓冲池 + 内存压缩 + LRU 缓存）、多线程编程（GCD / NSOperation / DispatchQueue 并发队列）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">本地存储:</strong> FMDB（SQLite 封装）多表设计 + 双索引 + Cell 高度缓存、UserDefaults + JSONEncoder 结构化存储、自研双级缓存系统（NSCache 内存 + 磁盘文件 LRU）。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">UI 与图形:</strong> 熟悉 CoreAnimation / CoreGraphics / CoreText、UIKit 100% 程序化布局、SnapKit / Masonry 声明式 Auto Layout、Lottie / PAG 动画、自研 ScreenAdapter 屏幕适配。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">系统框架:</strong> Photos（PHAsset 批量加载 + 增量扫描）、AVFoundation（摄像头 / 闪光灯 / 视频处理）、StoreKit、CoreMedia、Core Image、AdSupport + ATT。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 多语言与国际化 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-globe w-5 mr-2 text-indigo-500"></i>多语言与出海适配:</h3>
+                        <ul class="list-disc list-inside ml-6 space-y-2 text-base">
+                            <li>支持 27 种语言本地化（138 个 Localizable.strings 文件），按模块拆分 L10n 避免合并冲突；占位符规范化 + 文案长度控制 + RTL 镜像布局。</li>
+                            <li>多机型屏幕适配（iPhone SE 到 Pro Max 全系列），双轴比例适配（横向 .fit / 纵向 .fitH）、Poppins 字体家族 18 变体打包，全球一致性体验。</li>
+                            <li>iOS 13/15/26 多版本 API 兼容（windowScene、TabBar appearance、UIBackgroundConfiguration 等行为变化）。</li>
                         </ul>
                     </div>
 
                     <!-- 大数据与AI -->
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-database w-5 mr-2 text-indigo-500"></i>大数据与AI:</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-database w-5 mr-2 text-indigo-500"></i>大数据与 AI 应用:</h3>
                         <ul class="list-disc list-inside ml-6 space-y-2 text-base">
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">数据处理:</strong> 熟练使用 Hadoop 处理海量数据，可通过 Python 脚本进行数据聚合与多维度分析。</li>
-                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">AI应用:</strong> 了解大语言模型（如 Deepseek）的本地化部署与应用，火山方舟大模型的应用，Coze工作流的本地部署与开发，多维表格的应用，关注并实践AI编程工具（如 Trae, Cursor）以提升开发效率。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">数据处理:</strong> 熟练使用 Hadoop 处理海量数据，Python 脚本进行多维度数据聚合分析。</li>
+                            <li><strong class="font-medium text-gray-800 dark:text-gray-100">AI 应用:</strong> 大语言模型（Deepseek、火山方舟）本地化部署与应用，Coze 工作流本地部署，多维表格应用，AI 编程工具（Trae、Cursor、Claude Code）实战。</li>
                         </ul>
                     </div>
 
                     <!-- iOS逆向与自动化 -->
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-robot w-5 mr-2 text-indigo-500"></i>iOS逆向与自动化:</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3"><i class="fas fa-robot w-5 mr-2 text-indigo-500"></i>iOS 逆向与自动化:</h3>
                         <ul class="list-disc list-inside ml-6 space-y-2 text-base">
-                            <li>掌握 Frida、class-dump 、IDA等工具进行iOS逆向分析，具动态库注入及IPA二次打包的实战经验和自动抓取APP数据的经验。</li>
+                            <li>掌握 Frida、class-dump、IDA 等工具进行 iOS 逆向分析，具备动态库注入及 IPA 二次打包的实战经验和自动抓取 App 数据的经验。</li>
                         </ul>
                     </div>
                 </div>
@@ -244,7 +292,34 @@
                 <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">工作经历</h2>
                 <div class="section-content space-y-8">
                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
-                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2022/11 – 至今</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2025/09 – 2026/05</p>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">北京乐图卓创科技有限公司</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">iOS 开发工程师 (App 出海方向)</p>
+                        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                            <p class="mb-3">主导多款 iOS App 海外发行（App Store 全球上架），覆盖 AI 社交、AI 影像编辑、健康追踪、工具效率四大赛道。深入参与从 0 到 1 的需求评审、架构设计、核心算法实现、性能优化与商业化变现全流程。</p>
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mt-4 mb-2">主导项目（4 个海外 App，覆盖欧美 / 东南亚 / 南亚市场）：</h4>
+                            <ul>
+                                <li><strong>AIFriends（AI 伴侣社交）：</strong>117 个 Swift 文件 / 4.5 万行代码，支持 27 种语言；自研 Agora RTM 三层消息分发架构（前台实时渲染 + 后台静默入库）+ FMDB 三表本地存储 + Token 并发刷新防重入（NSLock + 请求队列批量重放），保证消息零丢失、登录失败率 &lt; 1%。</li>
+                                <li><strong>BodyLooks（AI 身体面部编辑）：</strong>519 个源文件 / 7 万行代码（Swift + Objective-C 混编）；自研 7 条 GPUImage 滤镜链 + 370KB GLSL Shader 实现 60+ 身体/面部变形参数；MediaPipe 双引擎关键点（身体 33 点 + 面部 478 点）+ 卡尔曼滤波（部位差异化参数）消除视频抖动；自研液化算法（RG16F 半浮点偏移纹理 + 6 种工具模式）。</li>
+                                <li><strong>Numbers Log（心血管健康追踪）：</strong>60 个核心 Swift 文件 / 1.6 万行代码；自研 PPG 心率测量算法管线（30fps 摄像头采集 + 二阶 Butterworth IIR 带通滤波 + 自适应峰值检测 + MAD 异常值过滤），30 秒静态测量误差 ±3 bpm；基于 Baevsky 改进的 HR/HRV 双因子压力指数模型。</li>
+                                <li><strong>iOS Cleaner Pro（智能手机清理）：</strong>1096 个文件 / 3.8 万行 Objective-C 代码；自研双引擎去重算法（Vision 人脸检测 + pHash 指纹匹配），相似照片识别准确率 85%+；10000 张照片扫描时间从 5 分钟优化至 1.5 分钟（提升 70%），峰值内存从 500MB 降至 150MB（降低 70%）。</li>
+                            </ul>
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-100 mt-4 mb-2">核心技术贡献：</h4>
+                            <ul>
+                                <li>GPU 图像处理：精通 GPUImage / OpenGL ES 2.0/3.0 / GLSL Shader 编写，2K 图像多滤镜串联保持 60fps。</li>
+                                <li>AI 模型集成：MediaPipe Tasks Vision、Vision + CoreML、AIFramework 本地模型部署与封装。</li>
+                                <li>实时通讯：Agora RTM 三通道数据一致性方案（RTM + HTTP 兜底 + SQLite），message_id 唯一键去重。</li>
+                                <li>信号处理：二阶 Butterworth IIR biquad 级联滤波器、卡尔曼滤波（视频关键点平滑）、MAD 异常值过滤等数字信号处理算法。</li>
+                                <li>商业化变现：StoreKit 1 双 SKU 订阅 + AdMob 插屏广告 + 金币体系，月 ARPU $2.5+；@MainActor 线程安全 + NWPathMonitor 断网保护 + 收据验证防重入。</li>
+                                <li>架构设计：MVVM-Service 分层、Swift Extension 拆分大文件（12 个 Extension 拆分 6000+ 行控制器）、三级 JSON 菜单驱动架构（新增功能零代码改造）。</li>
+                                <li>多语言国际化：27 种语言（138 个 Localizable.strings 文件），按模块拆分 L10n 避免合并冲突，支持 RTL 镜像布局。</li>
+                                <li>AI 工程化提效：自研 Shell 驱动 Claude Code / Codex 的 7×24 小时无人值守开发流水线（任务队列化 + 三级验证 + AI 代码 Review + 双远端推送全自动闭环），AI 生成代码符合率 90%+，多语言补全等高重复性任务从人工数小时压缩至 AI 自动完成。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 float-right">2022/11 – 2025/09</p>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">独立iOS开发者 & 自媒体创作者</h3>
                         <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
                             <h4 class="font-semibold text-gray-800 dark:text-gray-100 mt-4 mb-2">独立产品开发与运营:</h4>
@@ -301,6 +376,109 @@
             <section id="projects" class="fade-in">
                  <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 border-l-4 border-indigo-500 pl-3">项目经验</h2>
                 <div class="section-content grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- iOS Cleaner Pro -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">iOS Cleaner Pro — 智能手机清理 App
+                            <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外上架</span>
+                            <span class="text-xs font-normal bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-0.5 rounded-full ml-1">性能优化 70%</span>
+                            <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">主导</span>
+                        </h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">海外手机清理工具 App，智能识别相似照片、重复照片/视频、截图、Live Photo，支持视频压缩、网络测速。纯 Objective-C，MVVM-Service 架构，1096 个文件 / 3.8 万行代码。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术方案设计, 核心模块开发, 性能优化, 广告变现集成。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>自研双引擎去重算法（Vision 人脸检测 + pHash 感知哈希指纹），相似照片识别准确率 85%+。</li>
+                            <li>MVVM-Service 分层架构（5 个独立 Service 层：Vision / Fingerprint / MediaLibrary / Detection / Cache）。</li>
+                            <li>自研双级缓存系统（NSCache 内存 + 磁盘 LRU 淘汰）+ Photos 框架批量加载与增量扫描。</li>
+                            <li>多线程并发扫描 + 批量处理 + 自动释放池，10000 张照片扫描 5 分钟 → 1.5 分钟（提升 70%）。</li>
+                            <li>缩略图加载 + NSCache 容量限制 + 内存警告监听，峰值内存 500MB → 150MB（降低 70%）。</li>
+                            <li>StoreKit 双 SKU 内购（周订阅 + 终身买断）+ AdMob 插屏广告智能预加载，月 ARPU $2.5+。</li>
+                            <li>Union-Find 算法聚类相似照片 + 智能保留策略（分辨率/文件大小/拍摄时间综合评分）。</li>
+                        </ul>
+                    </div>
+
+                    <!-- AIFriends -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AIFriends — AI 伴侣社交 App
+                            <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外上架</span>
+                            <span class="text-xs font-normal bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-0.5 rounded-full ml-1">27 种语言</span>
+                            <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">主导</span>
+                        </h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">海外 AI 伴侣社交 App，用户可与 AI 角色实时聊天、生成个性化图片/视频、创建自定义 AI 角色。Swift + UIKit，117 个文件 / 4.5 万行代码，覆盖欧美、东南亚、南亚等全球市场。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术方案设计, 核心模块开发, 性能优化, 多语言国际化。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>Agora RTM SDK 三层消息分发架构（前台实时渲染 + 后台静默入库无缝切换）。</li>
+                            <li>FMDB 三表设计 + 双索引 + Cell 高度缓存，长列表滚动 60fps。</li>
+                            <li>Token 并发刷新防重入（NSLock + pendingRequests 队列批量重放），登录失败率 &lt; 1%。</li>
+                            <li>Swift Extension 拆分大文件（12 个 Extension 拆分 6000+ 行控制器）。</li>
+                            <li>AI 内容生成异步状态机（pending 字段 + RTM 回调 + 超时计时器三机制联动）。</li>
+                            <li>StoreKit 1 双 VIP 体系（@MainActor 线程安全 + NWPathMonitor 断网保护）。</li>
+                            <li>27 种语言本地化（138 个 strings 文件按模块拆分），Adjust 归因 + ThinkingData 行为分析。</li>
+                        </ul>
+                    </div>
+
+                    <!-- AI 工具提效 -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI 自动化开发流水线
+                            <span class="text-xs font-normal bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 px-2 py-0.5 rounded-full ml-1">AI 工程化</span>
+                            <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">自研</span>
+                        </h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">基于 Claude Code / Codex 构建 7×24 小时无人值守开发流水线，将重复性开发任务（新增页面、接口对接、多语言补全、Bug 修复）从人工执行转变为 AI 自主批量完成，AI 生成代码符合率 90%+。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> AI 工程化方案设计, 上下文工程（Context Engineering）, 流水线搭建与维护, AI 生成代码 Review。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>Shell 驱动 Claude Code（claude-sonnet-4-6）+ Codex 双引擎并行，互为兜底，失败自动重试。</li>
+                            <li>三级验证流程：xcodebuild 全量编译 + AI 自动生成功能测试 + AI 代码 Review（git diff → 4 维度审查 → JSON 结果）。</li>
+                            <li>上下文工程（Context Engineering）：6 步结构化 prompt 注入项目规范 + 禁止幻觉规则，AI 生成代码符合率 90%+。</li>
+                            <li>验证通过自动 git commit + push（GitHub + Gitee 双远端），验证失败自动回滚 + 邮件通知。</li>
+                            <li>多语言补全（27 种语言 × N 条文案）等任务从人工数小时压缩至 AI 自动完成。</li>
+                            <li>结合 Cursor / Trae 交互式开发，复杂逻辑人工设计，标准化实现交给 AI 批量执行。</li>
+                        </ul>
+                    </div>
+
+                    <!-- BodyLooks -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">BodyLooks — AI 身体面部编辑 App
+                            <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外上架</span>
+                            <span class="text-xs font-normal bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200 px-2 py-0.5 rounded-full ml-1">GPU 渲染</span>
+                            <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">主导</span>
+                        </h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">海外身体面部美型工具 App，覆盖身体塑形、面部重塑、液化变形、AI 换发型、滤镜调色五大场景。Swift + Objective-C 混编，519 个源文件 / 7 万行代码（不含 GLSL）。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术方案设计, GPU 滤镜与 Shader 开发, AI 关键点集成, 视频处理, 性能优化。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>自研 7 条 GPUImage 滤镜链（Transform / Warp / Shape / BodySkin / Adjust / Effect / Blend）。</li>
+                            <li>370KB+ GLSL Fragment Shader 实现 60+ 身体/面部变形参数实时渲染（2K 图像保持 60fps）。</li>
+                            <li>MediaPipe 双引擎关键点检测（身体 33 点 + 面部 478 点），36 点封闭多边形射线法判断脸部区域。</li>
+                            <li>卡尔曼滤波视频关键点平滑（胸部/手部分区参数调优 + 3σ 异常值检测 + 变化率限制）。</li>
+                            <li>自研液化算法（RG16F 半浮点偏移纹理 + 6 种工具模式 + 冻结边界两阶段二分搜索）。</li>
+                            <li>黑眼圈去除 v2 算法（半边脸亮度权重 + 肤色定向混合，替换旧版相对暗度提亮）。</li>
+                            <li>三级 JSON 菜单驱动架构（新增功能零代码改造）+ 6 类数据 200 步撤销/重做系统。</li>
+                        </ul>
+                    </div>
+
+                    <!-- Numbers Log -->
+                    <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Numbers Log — 心血管健康追踪 App
+                            <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外上架</span>
+                            <span class="text-xs font-normal bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-0.5 rounded-full ml-1">PPG 算法</span>
+                            <span class="text-xs font-normal bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-0.5 rounded-full ml-1">主导</span>
+                        </h3>
+                        <p class="text-base text-gray-600 dark:text-gray-400 mb-3">海外心血管健康记录与测量 App，通过手机后置摄像头 + 闪光灯（PPG 光电容积描记）非接触式测量心率、HRV、心血管压力指数。Swift 5 / UIKit 100% 程序化布局，60 个核心文件 / 1.6 万行代码。</p>
+                        <p class="text-base mb-1"><strong class="font-medium">项目职责:</strong> 需求分析, 技术方案设计, PPG 信号处理算法实现, 核心模块开发, 性能优化。</p>
+                        <p class="text-base mb-3"><strong class="font-medium">主要技术:</strong></p>
+                        <ul class="list-disc list-inside text-base space-y-1 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li>自研 PPG 心率测量算法管线（AVFoundation 30fps 采集 → 红色通道提取 → 滤波 → 峰值检测）。</li>
+                            <li>二阶 Butterworth IIR 带通滤波器（0.5-4Hz，biquad 双二阶节级联实现）。</li>
+                            <li>自适应峰值检测（移动窗口动态阈值）+ MAD 中位数绝对偏差异常值过滤。</li>
+                            <li>HRV 时域指标（RMSSD / SDNN）+ Baevsky 改进压力指数（HR/HRV/年龄三因子加权）。</li>
+                            <li>FMDB 三库分离持久化（血压 / 血糖 / BMI）+ UserDefaults JSON 存储心率历史。</li>
+                            <li>自研 ScreenAdapter 双轴比例适配 + Poppins 18 字重打包（全球多机型一致性）。</li>
+                            <li>30 秒静态测量误差 ±3 bpm，6 级心血管健康分类输出。</li>
+                        </ul>
+                    </div>
+
                     <!-- Project Card Template -->
                     <div class="card-hover p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 flex flex-col">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">X 自主 <span class="text-xs font-normal bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full ml-1">独立开发</span> <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full ml-1">海外和国内上架</span></h3>
