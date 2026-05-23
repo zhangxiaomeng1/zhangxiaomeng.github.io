@@ -15,6 +15,7 @@ iOS 手机清理工具 App，主导 iOS 端开发，海外上架（App Store 全
 - MVVM-Service 分层架构设计，5 个独立 Service 层（Vision / Fingerprint / MediaLibrary / Detection / Cache）
 - 自研双级缓存系统（内存 + 磁盘，LRU 淘汰算法）+ Photos 框架深度优化（批量加载 + 增量扫描）
 - 完整变现体系：AdMob 插屏广告 + StoreKit 双 SKU 订阅（周订阅 + 终身买断），月 ARPU $2.5+
+- 三方数据统计聚合（ThinkingData + Firebase Analytics + AppsFlyer），Firebase Remote Config 远程控制广告策略与 A/B 测试
 
 **主要技术**：
 - Vision + CoreML 双引擎去重算法（人脸检测 + pHash 指纹匹配）。
@@ -23,7 +24,8 @@ iOS 手机清理工具 App，主导 iOS 端开发，海外上架（App Store 全
 - Photos 框架深度优化（PHAsset 批量加载 + 增量扫描）。
 - StoreKit 1 内购体系（周订阅 + 终身买断双 SKU）。
 - AdMob 插屏广告智能预加载（VIP 用户跳过策略）。
-- ThinkingData 行为分析 + 精细化漏斗埋点。
+- 三方数据统计聚合（ThinkingData 用户行为分析 + Firebase Analytics 出海事件追踪 + AppsFlyer 移动归因）。
+- Firebase Remote Config 远程配置（A/B 测试 + 广告频次动态控制）。
 
 ---
 
@@ -91,9 +93,24 @@ iOS 手机清理工具 App，用户可智能识别相似照片、重复照片/�
 #### 8. UI 架构与适配
 - 基于 Masonry 实现声明式 Auto Layout，所有约束代码化，避免 Storyboard 冲突
 - 封装 `SGSizeAdapter` 屏幕适配工具，基于 iPhone 6 设计稿（375pt）等比缩放
-- 封装 `SGColorManager` 统一管理颜色方案，支持深色模式（iOS 13+）
+- 封装 `SGColorManager` 统一管理颜色方案，支持深色模式（iOS 13+)
 - 封装 `SGFontManager` 加载 Poppins 字体家族，统一字体风格
 - 基类设计：`SGBaseViewController` 统一导航栏样式、状态栏配置、生命周期埋点
+
+#### 9. 三方数据统计与归因聚合
+- 封装 `SGAnalyticsManager` 单例聚合三家统计服务：ThinkingData（行为分析）+ Firebase Analytics（Google 出海生态事件）+ AppsFlyer（移动归因）
+- 统一事件追踪入口：`- (void)track:eventName properties:` 一次调用，自动分发到三个平台，避免业务层多次埋点
+- ThinkingData 集成：本地事件队列缓存，定时批量上传，断网时自动重试
+- AppsFlyer 归因：`waitForATTUserAuthorizationWithTimeoutInterval:120` 等待 ATT 授权后再启动，保证 IDFA 准确性
+- 用户标识打通：通过 `customerUserID` 将 AppsFlyer 与 ThinkingData 的 `distinctId` 关联，支持跨平台用户路径分析
+- 关键漏斗埋点：扫描启动 → 扫描完成 → 进入详情 → 删除照片 → 触发广告 → 点击订阅 → 支付成功，精细化分析转化漏斗
+
+#### 10. Firebase Remote Config 远程配置与 A/B 测试
+- 封装 `SGRemoteConfigService` 单例统一管理远程配置，启动时拉取最新配置并本地缓存
+- 广告策略远程控制：插屏广告展示率（`show_rate_inter`）、单日最大展示次数（`max_show_inter`）、展示间隔（`show_jiange_inter`）、清理多少张图片后展示（`max_clean_pics`），不发版即可调整广告策略
+- UI 显示控制：评分弹窗开关（`paid_rate_rate`）、设置页评分入口开关（`set_rate_rate`），按渠道/版本灰度控制
+- A/B 测试支持：基于 Firebase A/B Testing，按用户分桶下发不同配置，实时统计转化效果
+- 配置默认值兜底：所有配置项设置默认值，远程拉取失败时使用本地默认值，保证业务可用性
 
 ---
 
@@ -171,7 +188,11 @@ iOS 手机清理工具 App，用户可智能识别相似照片、重复照片/�
 
 **系统框架**：Vision（图像分析）, CoreML（机器学习）, Photos（相册访问）, StoreKit（内购）, AVFoundation（视频处理）
 
-**数据分析**：ThinkingData（用户行为分析）
+**数据统计与归因**：
+- ThinkingData SDK（用户行为分析 + 自定义事件埋点）
+- Firebase Analytics（Google 出海事件追踪）
+- Firebase Remote Config（远程配置 + A/B 测试）
+- AppsFlyer SDK（移动归因 + 渠道追踪 + IDFA/ATT 授权）
 
 ---
 

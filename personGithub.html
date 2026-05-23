@@ -299,10 +299,10 @@
                             <p class="mb-3">主导多款 iOS App 海外发行（App Store 全球上架），覆盖 AI 社交、AI 影像编辑、健康追踪、工具效率四大赛道。深入参与从 0 到 1 的需求评审、架构设计、核心算法实现、性能优化与商业化变现全流程。</p>
                             <h4 class="font-semibold text-gray-800 dark:text-gray-100 mt-4 mb-2">主导项目（4 个海外 App，覆盖欧美 / 东南亚 / 南亚市场）：</h4>
                             <ul>
+                                <li><strong>iOS Cleaner Pro（智能手机清理）：</strong>1096 个文件 / 3.8 万行 Objective-C 代码；自研双引擎去重算法（Vision 人脸检测 + pHash 指纹匹配），相似照片识别准确率 85%+；10000 张照片扫描时间从 5 分钟优化至 1.5 分钟（提升 70%），峰值内存从 500MB 降至 150MB（降低 70%）；三方数据统计聚合（ThinkingData + Firebase Analytics + AppsFlyer）+ Firebase Remote Config 远程控制广告策略与 A/B 测试。</li>
                                 <li><strong>AIFriends（AI 伴侣社交）：</strong>117 个 Swift 文件 / 4.5 万行代码，支持 27 种语言；自研 Agora RTM 三层消息分发架构（前台实时渲染 + 后台静默入库）+ FMDB 三表本地存储 + Token 并发刷新防重入（NSLock + 请求队列批量重放），保证消息零丢失、登录失败率 &lt; 1%。</li>
                                 <li><strong>BodyLooks（AI 身体面部编辑）：</strong>519 个源文件 / 7 万行代码（Swift + Objective-C 混编）；自研 7 条 GPUImage 滤镜链 + 370KB GLSL Shader 实现 60+ 身体/面部变形参数；MediaPipe 双引擎关键点（身体 33 点 + 面部 478 点）+ 卡尔曼滤波（部位差异化参数）消除视频抖动；自研液化算法（RG16F 半浮点偏移纹理 + 6 种工具模式）。</li>
                                 <li><strong>Numbers Log（心血管健康追踪）：</strong>60 个核心 Swift 文件 / 1.6 万行代码；自研 PPG 心率测量算法管线（30fps 摄像头采集 + 二阶 Butterworth IIR 带通滤波 + 自适应峰值检测 + MAD 异常值过滤），30 秒静态测量误差 ±3 bpm；基于 Baevsky 改进的 HR/HRV 双因子压力指数模型。</li>
-                                <li><strong>iOS Cleaner Pro（智能手机清理）：</strong>1096 个文件 / 3.8 万行 Objective-C 代码；自研双引擎去重算法（Vision 人脸检测 + pHash 指纹匹配），相似照片识别准确率 85%+；10000 张照片扫描时间从 5 分钟优化至 1.5 分钟（提升 70%），峰值内存从 500MB 降至 150MB（降低 70%）。</li>
                             </ul>
                             <h4 class="font-semibold text-gray-800 dark:text-gray-100 mt-4 mb-2">核心技术贡献：</h4>
                             <ul>
@@ -393,6 +393,8 @@
                             <li>多线程并发扫描 + 批量处理 + 自动释放池，10000 张照片扫描 5 分钟 → 1.5 分钟（提升 70%）。</li>
                             <li>缩略图加载 + NSCache 容量限制 + 内存警告监听，峰值内存 500MB → 150MB（降低 70%）。</li>
                             <li>StoreKit 双 SKU 内购（周订阅 + 终身买断）+ AdMob 插屏广告智能预加载，月 ARPU $2.5+。</li>
+                            <li>三方数据统计聚合（ThinkingData 行为分析 + Firebase Analytics 出海事件追踪 + AppsFlyer 移动归因），SGAnalyticsManager 统一入口一次调用分发三平台。</li>
+                            <li>Firebase Remote Config 远程配置：不发版动态控制广告展示率/单日次数/间隔/触发阈值，支持 A/B 测试按用户分桶灰度下发策略。</li>
                             <li>Union-Find 算法聚类相似照片 + 智能保留策略（分辨率/文件大小/拍摄时间综合评分）。</li>
                         </ul>
                     </div>
