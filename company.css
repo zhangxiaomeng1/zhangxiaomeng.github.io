@@ -6,14 +6,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .hero-cn { font-weight: 650; color: #5f6570; }
 .featured-lead, .featured h2, .feature-points li { word-break: keep-all; }
 .featured-lead { max-width: 650px; }
-.stage-monogram { width: 100%; height: 100%; display: grid; place-items: center; border-radius: 24%; color: #fff; font-size: 31px; font-weight: 800; letter-spacing: -.08em; background: linear-gradient(145deg, #111827, #7656e8); }
-.stage-monogram::first-line { line-height: 1; }
-.stage-monogram { text-shadow: 0 2px 11px rgba(0, 0, 0, .2); }
-.stage-monogram + * { display: none; }
 .stage-ratepilot { width: 92px; height: 92px; left: 28%; top: 13%; padding: 7px; animation-delay: -1.5s; }
 .stage-stamp { width: 96px; height: 96px; right: 29%; bottom: 12%; padding: 7px; animation-delay: -3.8s; }
-.stage-ratepilot .stage-monogram { background: linear-gradient(145deg, #111827, #2563eb 62%, #22d3ee); }
-.stage-stamp .stage-monogram { background: linear-gradient(145deg, #f97316, #d9465f 62%, #7c3aed); }
+.stage-ratepilot img, .stage-stamp img { object-fit: cover; }
 
 .card-ratepilot { grid-column: span 6; color: #eff7ff; background: radial-gradient(circle at 75% 15%, rgba(81, 167, 255, .36), transparent 35%), linear-gradient(145deg, #101d38, #19365a); }
 .card-ratepilot .platform-pill, .card-ratepilot p { color: #b8d1eb; }
@@ -23,15 +18,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .card-stamp .platform-pill, .card-stamp p { color: #e4bec0; }
 .card-stamp .card-number { color: rgba(255, 255, 255, .43); }
 .card-stamp .card-link { color: #ffc18b; }
-.new-app-icon { position: absolute; top: 34px; right: 38px; width: 150px; height: 150px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .18); border-radius: 42px; font-size: 42px; font-weight: 820; letter-spacing: -.1em; box-shadow: 0 24px 60px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .24); transform: rotate(6deg); }
-.new-app-icon span { position: absolute; right: 14px; bottom: 13px; color: rgba(255, 255, 255, .62); font-size: 8px; font-weight: 700; letter-spacing: .15em; }
-.icon-ratepilot { background: linear-gradient(145deg, #152d58, #2563eb 58%, #22d3ee); }
-.icon-stamp { background: linear-gradient(145deg, #ff986c, #b94a70 58%, #663db4); }
+.new-app-icon { position: absolute; top: 34px; right: 38px; width: 150px; height: 150px; overflow: hidden; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .18); border-radius: 42px; box-shadow: 0 24px 60px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .24); transform: rotate(6deg); }
+.new-app-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 78%; }
 .card-ratepilot .card-copy, .card-stamp .card-copy { margin-top: auto; }
 .card-ratepilot .card-link, .card-stamp .card-link { margin-top: 24px; }
 .about-copy strong { font-weight: 760; }
 .contact > p:not(.overline) { max-width: 800px; }
+.contact-copy-wrap { display: inline-flex; align-items: center; gap: 10px; }
+.contact-copy { padding: 0; border: 0; background: transparent; font: inherit; cursor: pointer; }
+.contact-copy:hover { color: #fff; }
+.contact-copy-status { color: #8ee6c1; font-size: 12px; }
 
 @media (max-width: 1050px) {
   .stage-ratepilot { left: 24%; top: 13%; }
@@ -42,9 +39,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 @media (max-width: 760px) {
   .stage-ratepilot { width: 62px; height: 62px; left: 25%; top: 14%; padding: 5px; }
   .stage-stamp { width: 64px; height: 64px; right: 24%; bottom: 14%; padding: 5px; }
-  .stage-monogram { font-size: 18px; }
-  .new-app-icon { top: 28px; right: 28px; width: 116px; height: 116px; border-radius: 34px; font-size: 32px; }
-  .new-app-icon span { right: 10px; bottom: 9px; font-size: 7px; }
+  .new-app-icon { top: 28px; right: 28px; width: 116px; height: 116px; border-radius: 34px; }
   .card-ratepilot, .card-stamp { grid-column: auto; min-height: 470px; }
   .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 100%; }
 }

@@ -88,10 +88,10 @@
           <img src="life-coach/assets/icons/lifelog.png" alt="LifeLog 图标" />
         </a>
         <a class="stage-icon stage-ratepilot" href="#app-ratepilot" aria-label="查看 RatePilot">
-          <span class="stage-monogram">RP</span>
+          <img src="life-coach/assets/icons/ratepilot.png" alt="RatePilot 图标" />
         </a>
         <a class="stage-icon stage-stamp" href="#app-stamp" aria-label="查看 Stamp Studio">
-          <span class="stage-monogram">SS</span>
+          <img src="life-coach/assets/icons/stamp-studio.png" alt="Stamp Studio 图标" />
         </a>
 
         <div class="stage-caption" aria-hidden="true">
@@ -223,7 +223,7 @@
 
         <article class="app-card card-ratepilot" id="app-ratepilot" data-app="ratepilot" data-priority="6">
           <div class="card-number">06</div>
-          <div class="new-app-icon icon-ratepilot" aria-hidden="true">RP<span>RATEPILOT</span></div>
+          <div class="new-app-icon icon-ratepilot" aria-hidden="true"><img src="life-coach/assets/icons/ratepilot.png" alt="" /></div>
           <div class="card-copy">
             <span class="platform-pill">海外 · 开发者工具</span>
             <h3>RatePilot</h3>
@@ -234,7 +234,7 @@
 
         <article class="app-card card-stamp" id="app-stamp" data-app="stamp-studio" data-priority="7">
           <div class="card-number">07</div>
-          <div class="new-app-icon icon-stamp" aria-hidden="true">SS<span>STAMP STUDIO</span></div>
+          <div class="new-app-icon icon-stamp" aria-hidden="true"><img src="life-coach/assets/icons/stamp-studio.png" alt="" /></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone / iPad · 效率工具</span>
             <h3>Stamp Studio</h3>
@@ -274,6 +274,13 @@
         <a class="button button-light" href="ios-services/">查看三档 iOS 服务 <span aria-hidden="true">↗</span></a>
         <a class="text-link light" href="ios-seven-day-plan/">打开七日执行计划 <span aria-hidden="true">↗</span></a>
         <a class="text-link light" href="mailto:zxm_qwer@163.com">邮件联系阳明科技 <span aria-hidden="true">↗</span></a>
+        <a class="text-link light" href="https://x.com/x_autonomy" target="_blank" rel="noopener noreferrer">X / Twitter · @x_autonomy <span aria-hidden="true">↗</span></a>
+        <div class="contact-copy-wrap">
+          <button class="text-link light contact-copy" type="button" data-copy-text="17600383816" aria-describedby="wechat-copy-status">
+            微信 · 17600383816 <span aria-hidden="true">复制</span>
+          </button>
+          <span class="contact-copy-status" id="wechat-copy-status" role="status" aria-live="polite"></span>
+        </div>
       </div>
     </section>
   </main>
@@ -286,5 +293,20 @@
     </nav>
     <p class="copyright">© 2026 阳明科技 · Built for useful products.</p>
   </footer>
+  <script>
+    document.querySelectorAll('[data-copy-text]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const value = button.dataset.copyText;
+        const status = document.getElementById(button.getAttribute('aria-describedby'));
+        try {
+          await navigator.clipboard.writeText(value);
+          status.textContent = '已复制';
+        } catch {
+          status.textContent = `微信号：${value}`;
+        }
+        window.setTimeout(() => { status.textContent = ''; }, 2200);
+      });
+    });
+  </script>
 </body>
 </html>
