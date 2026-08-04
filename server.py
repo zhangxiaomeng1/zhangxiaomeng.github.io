@@ -25,10 +25,10 @@ def find_free_port(start_port):
     # 如果所有端口都被占用，抛出异常
     raise OSError(f"无法找到可用端口，从{start_port}到{max_port-1}的所有端口都被占用")
 
-# 自定义处理器，将根路径请求重定向到home.html
+# 自定义处理器，确保本地根路径打开当前主页
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        # 如果请求根路径，重定向到home.html
+        # 如果请求根路径，交给当前 index.html
         if self.path == '/':
             self.path = '/index.html'
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
