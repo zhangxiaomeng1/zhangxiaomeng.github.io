@@ -1,340 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 阳明主页</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0a84ff',
-                        secondary: '#f5f5f7',
-                        accent: '#6e6e73',
-                        dark: '#111111',
-                        darker: '#000000',
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-            .glow {
-                box-shadow: 0 0 15px rgba(10, 132, 255, 0.5);
-            }
-            .text-glow {
-                text-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
-            }
-            .hover-scale {
-                transition: transform 0.3s ease;
-            }
-            .hover-scale:hover {
-                transform: scale(1.03);
-            }
-            .card-shadow {
-                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="张晓檬的个人主页：iOS 高级架构、AI App 出海、从 0 到 1 开发与上架交付。">
+  <meta name="theme-color" content="#07111f">
+  <meta property="og:title" content="张晓檬｜iOS × AI 产品工程师">
+  <meta property="og:description" content="把想法落成可运行、可商业化、可上架的 iOS 产品。">
+  <meta property="og:type" content="website">
+  <title>张晓檬｜iOS × AI 产品工程师</title>
+  <link rel="stylesheet" href="home.css">
 </head>
-<body class="font-inter bg-darker text-secondary min-h-screen">
-    <!-- 顶部渐变 -->
-    <div class="fixed top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-        <!-- 导航栏 -->
-        <nav class="flex justify-between items-center mb-16">
-            <div class="text-2xl font-bold text-primary"> 阳明</div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-secondary hover:text-primary transition-colors">关于</a>
-                <a href="#skills" class="text-secondary hover:text-primary transition-colors">技能</a>
-                <a href="#projects" class="text-secondary hover:text-primary transition-colors">项目</a>
-                <div class="relative group">
-                    <button class="text-secondary hover:text-primary transition-colors flex items-center" aria-haspopup="true">
-                        iOS 服务 <i class="fa fa-chevron-down text-xs ml-1"></i>
-                    </button>
-                    <div class="absolute right-0 top-full pt-3 w-64 hidden group-hover:block group-focus-within:block z-20">
-                        <div class="bg-dark border border-primary/30 rounded-xl p-2 card-shadow">
-                            <a href="ios-services/" class="block px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors">
-                                <span class="block font-medium text-secondary">三档 iOS 服务</span>
-                                <span class="block text-xs text-accent mt-1">¥299 诊断 · MVP 陪跑 · 七日上架</span>
-                            </a>
-                            <a href="ios-seven-day-plan/" class="block px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors">
-                                <span class="block font-medium text-secondary">iOS 七日执行计划</span>
-                                <span class="block text-xs text-accent mt-1">Day 1—Day 7 独立执行页面</span>
-                            </a>
-                            <a href="life-coach/" class="block px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors">
-                                <span class="block font-medium text-secondary">Life Coach</span>
-                                <span class="block text-xs text-accent mt-1">AI personal-growth coaching project</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <a href="#contact" class="text-secondary hover:text-primary transition-colors">联系</a>
-            </div>
-            <button class="md:hidden text-2xl">
-                <i class="fa fa-bars"></i>
-            </button>
+<body>
+  <header class="site-header">
+    <div class="page-shell nav">
+      <a class="brand" href="./" aria-label="返回阳明主页">
+        <span class="brand-mark">ZM</span>
+        <span class="brand-copy">
+          <strong>张晓檬 / 阳明</strong>
+          <span>iOS × AI product engineering</span>
+        </span>
+      </a>
+      <div class="nav-links" aria-label="主导航">
+        <a href="#capabilities">能力</a>
+        <a href="#projects">项目</a>
+        <a href="#journey">经历</a>
+        <a class="nav-cta" href="ios-services/">三档 iOS 服务 →</a>
+      </div>
+      <details class="mobile-menu">
+        <summary aria-label="打开菜单">☰</summary>
+        <nav aria-label="移动端导航">
+          <a href="#capabilities">能力</a>
+          <a href="#projects">项目</a>
+          <a href="#journey">经历</a>
+          <a href="ios-services/">三档 iOS 服务</a>
+          <a href="ios-seven-day-plan/">七日执行计划</a>
         </nav>
-
-        <!-- 英雄区域 -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-20">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-secondary">
-                    你好，我是<span class="text-primary text-glow"> 阳明</span>
-                </h1>
-                <p class="text-xl text-accent mt-6 max-w-lg">
-                    自媒体博主，X长截图、X自主工具APP创始人
-                </p>
-                <p class="text-xl text-accent mt-6 max-w-lg">
-                    CSDN、简书创作者，访问量30万+，累计字数1000万+。
-                </p>
-                <p class="text-xl text-accent mt-6 max-w-lg">                    
-                    前百度高级工程师，现专注AI赋能。
-                </p>
-                <div class="mt-8 flex space-x-4">
-                    <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover-scale">
-                        联系我
-                    </a>
-                    <a href="#projects" class="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 px-8 py-3 rounded-full font-medium transition-all duration-300">
-                        查看项目
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/3 relative">
-                <div class="relative z-10 rounded-full overflow-hidden border-4 border-primary/30 glow w-64 h-64 md:w-80 md:h-80">
-                    <img src="images/me.JPG" alt="头像" class="w-full h-full object-contain">
-                </div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-            </div>
-        </div>
-
-        <!-- 关于我 -->
-        <section id="about" class="mb-20">
-            <h2 class="text-3xl font-bold mb-10 flex items-center">
-                <i class="fa fa-user-circle mr-3 text-primary"></i>关于我
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-dark rounded-2xl p-8 card-shadow hover-scale">
-                    <h3 class="text-xl font-bold mb-4 text-primary">我的使命</h3>
-                    <p class="text-lg leading-relaxed mb-6">
-                        通过AI赋能和科普，帮助更多人实现自我价值，创造美好未来。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-8 card-shadow hover-scale">
-                    <h3 class="text-xl font-bold mb-4 text-primary">我的愿景</h3>
-                    <p class="text-lg leading-relaxed">
-                        成为连接技术与商业的桥梁，推动创新和社会进步。
-                    </p>
-                    <!-- <p class="text-lg leading-relaxed">
-                        前百度高级工程师，现专注于AI赋能的项目顾问和自媒体创作，致力于帮助更多人掌握技术和实现自我价值。
-                    </p> -->
-                </div>
-            </div>
-        </section>
-
-        <!-- 技能专长 -->
-        <section id="skills" class="mb-20">
-            <h2 class="text-3xl font-bold mb-10 flex items-center">
-                <i class="fa fa-code mr-3 text-primary"></i>技能专长
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-tasks text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">项目管理</h3>
-                    </div>
-                    <p class="text-accent">
-                        拥有丰富的项目管理经验，能够高效组织团队，确保项目按时高质量完成。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-cog text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">AI赋能</h3>
-                    </div>
-                    <p class="text-accent">
-                        深入理解人工智能技术，能够将AI应用于不同领域，创造实际价值。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-line-chart text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">数据分析</h3>
-                    </div>
-                    <p class="text-accent">
-                        擅长数据挖掘和分析，能够从海量数据中提取有价值的信息和见解。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-code text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">全栈开发</h3>
-                    </div>
-                    <p class="text-accent">
-                        具备前后端开发能力，能够独立开发完整的Web应用和移动应用。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-film text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">设计剪辑</h3>
-                    </div>
-                    <p class="text-accent">
-                        熟练掌握设计和视频剪辑工具，能够创作出高质量的视觉内容。
-                    </p>
-                </div>
-                <div class="bg-dark rounded-2xl p-6 card-shadow hover-scale">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                            <i class="fa fa-rocket text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">创业投资顾问</h3>
-                    </div>
-                    <p class="text-accent">
-                        关注科技创新领域的创业项目，提供技术支持和战略指导。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 项目经历 -->
-        <section id="projects" class="mb-20">
-            <h2 class="text-3xl font-bold mb-10 flex items-center">
-                <i class="fa fa-briefcase mr-3 text-primary"></i>项目经历
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-dark rounded-2xl overflow-hidden card-shadow group hover-scale">
-                    <div class="relative">
-                        <img src="images/2.PNG" alt="X长截图工具" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">X长截图工具APP</h3>
-                        <p class="text-accent mb-4">iOS平台上的长截图应用，帮助用户轻松截取长页面内容。</p>
-                        <a href="itms-apps://itunes.apple.com/app/id6745420963" class="inline-flex items-center text-primary hover:text-primary/80">
-                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-dark rounded-2xl overflow-hidden card-shadow group hover-scale">
-                    <div class="relative">
-                        <img src="images/1.PNG" alt="X事自己做主" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">X事自己做主工具APP</h3>
-                        <p class="text-accent mb-4">隐私保护器，作为一款无需联网的人生记录仪，完美解决你的困扰。它能 7*24 小时不间断记录各类重要事件。</p>
-                        <!-- <p class="text-accent mb-4">决策辅助工具APP，通过数据分析和AI算法，帮助用户做出更明智的决策。</p> -->
-                        <a href="itms-apps://itunes.apple.com/app/id1610261169" class="inline-flex items-center text-primary hover:text-primary/80">
-                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 联系方式 -->
-        <section id="contact" class="mb-16">
-            <h2 class="text-3xl font-bold mb-10 flex items-center">
-                <i class="fa fa-address-card mr-3 text-primary"></i>联系方式
-            </h2>
-            <div class="bg-dark rounded-2xl p-8 md:p-12 card-shadow">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">关注我的社交媒体</h3>
-                        <div class="space-y-4">
-                            <a href="#" class="flex items-center p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300">
-                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                                    <i class="fa fa-weixin text-primary text-xl"></i>
-                                </div>
-                                <div>
-                                    <!-- <div class="font-medium">微信公众号</div> -->
-                                    <!-- <div class="text-accent text-sm">扫码关注获取最新动态</div> -->
-                                    <img src="images/微信公众号.JPG" alt="微信公众号" style="width: 482 px; height: 200px; display: block; margin: 0 auto 5px; border-radius: 8px;">
-                                </div>
-                                <div class="w-5 font-medium"></div>
-                                <div class="font-medium">微信公众号：</div>
-                                <div>
-                                    <img src="images/微信公众号1.JPG" alt="微信公众号" style="width: 472 px; height: 144px; display: block; margin: 0 auto 5px; border-radius: 8px;">
-                                </div>
-                            </a>
-                            <a href="mailto:y921996026@q" class="flex items-center p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300">
-                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                                    <i class="fa fa-envelope text-primary text-xl"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">Email</div>
-                                    <div class="text-accent text-sm">zxm_qwer@163.com</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">其他平台</h3>
-                        <div class="grid grid-cols-2 gap-3">
-                            <a href="https://yangmingai.blog.csdn.net/" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-code text-primary text-2xl mb-2"></i>
-                                <div>CSDN</div>
-                            </a>
-                            <a href="https://www.jianshu.com/u/949e63975031" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-book text-primary text-2xl mb-2"></i>
-                                <div>简书</div>
-                            </a>
-                            <a href="https://github.com/zhangxiaomeng1" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-book text-primary text-2xl mb-2"></i>
-                                <div>GitHub</div>
-                            </a>
-                            <a href="https://www.douyin.com/user/MS4wLjABAAAAPMOWatY6VMg_GpQ4rMZIVtcQ3B7HQc8wdw-68xV3xYv_1QtcPHAlZQ6urGPGw5Uh?from_tab_name=main" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-music text-primary text-2xl mb-2"></i>
-                                <div>抖音</div>
-                            </a>
-                            <a href="https://www.xiaohongshu.com/user/profile/68612f31000000001b0227a7?xsec_token=ABU2zyjbYjlrmkdxuvpglEjEZHaQPaK41EmJ1p_MBxEDU%3D" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-picture-o text-primary text-2xl mb-2"></i>
-                                <div>小红书</div>
-                            </a>
-                            <a href="https://space.bilibili.com/3546937808653146" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-play-circle text-primary text-2xl mb-2"></i>
-                                <div>哔哩哔哩</div>
-                            </a>
-                            <a href="https://www.kuaishou.com/profile/3xz2j5nh6nrccfe" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-play-circle text-primary text-2xl mb-2"></i>
-                                <div>快手</div>
-                            </a>
-                            <a href="personGithub.html" class="p-4 rounded-xl bg-darker hover:bg-primary/10 transition-colors duration-300 text-center">
-                                <i class="fa fa-play-circle text-primary text-2xl mb-2"></i>
-                                <div>简历</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 页脚 -->
-        <footer class="text-center text-accent py-8">
-            <p> ©2025  阳明. 保留所有权利.</p>
-        </footer>
+      </details>
     </div>
+  </header>
+
+  <main>
+    <section class="page-shell hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Independent iOS / AI builder</p>
+        <h1 id="hero-title">把一个想法，<br><em>做成能上线的 App。</em></h1>
+        <p class="hero-lead">我是张晓檬，10+ 年 iOS 工程经验。现在专注 AI 原生产品、App 出海和从 0 到 1 的上架交付。</p>
+        <p class="hero-note">从需求收敛、架构与核心代码，到性能、订阅、归因和 App Store 资料，我更关注产品能不能真正跑起来、卖出去。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="ios-services/">查看三档服务 →</a>
+          <a class="button button-secondary" href="ios-seven-day-plan/">打开七日计划</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="portrait-frame">
+          <img src="images/me.JPG" alt="张晓檬头像" width="547" height="548">
+        </div>
+        <div class="portrait-caption">
+          <div>
+            <strong>阳明</strong>
+            <span>iOS 架构 / App 出海 / AI 工程化</span>
+          </div>
+          <span class="availability">开放合作</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell proof-strip" aria-label="个人经历摘要">
+      <div class="proof"><strong>10+</strong><span>年 iOS 工程经验</span></div>
+      <div class="proof"><strong>Baidu</strong><span>前百度 iOS 高级工程师</span></div>
+      <div class="proof"><strong>10+</strong><span>款海外 App 参与交付</span></div>
+      <div class="proof"><strong>52 万+</strong><span>X 长截图累计使用次数</span></div>
+    </section>
+
+    <section id="capabilities" class="page-shell section" aria-labelledby="capabilities-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">What I do</p>
+          <h2 id="capabilities-title">技术不是清单，<br>是交付路径。</h2>
+        </div>
+        <p class="section-intro">把复杂问题拆成可以执行的工程节点：先冻结范围，再验证核心链路，最后把商业化和发布所需的细节补齐。</p>
+      </div>
+      <div class="capability-grid">
+        <article class="capability">
+          <span class="capability-number">01 / BUILD</span>
+          <h3>iOS 原生与跨平台</h3>
+          <p>Swift、Objective-C、SwiftUI、UIKit、Flutter；适合从 MVP 到复杂业务的架构与核心模块。</p>
+        </article>
+        <article class="capability">
+          <span class="capability-number">02 / SHIP</span>
+          <h3>出海与商业化</h3>
+          <p>StoreKit、订阅、AdMob、Firebase、AppsFlyer、Adjust；覆盖支付、归因、远程配置和多语言。</p>
+        </article>
+        <article class="capability">
+          <span class="capability-number">03 / OPTIMIZE</span>
+          <h3>性能与图像处理</h3>
+          <p>Photos、AVFoundation、Vision、GPUImage、GLSL、MediaPipe；处理扫描、视频、实时渲染与内存问题。</p>
+        </article>
+        <article class="capability">
+          <span class="capability-number">04 / AUGMENT</span>
+          <h3>AI 工程化</h3>
+          <p>用 Claude Code、Codex、Cursor、Trae 构建带编译、测试和 Review 闭环的 AI 开发流程。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="page-shell section" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2 id="projects-title">做过的产品，<br>也做过难题。</h2>
+        </div>
+        <p class="section-intro">下面是最能代表工作方式的几类项目：效率工具、AI 社交、图像算法和 AI 辅助研发。</p>
+      </div>
+      <div class="project-grid">
+        <article class="project featured">
+          <div class="project-top"><span class="project-label">Overseas / Performance</span><span>01</span></div>
+          <h3>iOS Cleaner Pro</h3>
+          <p>智能手机清理工具。用 Vision + pHash 做相似照片识别，以批量加载、并发扫描和双级缓存把 10,000 张照片的扫描从约 5 分钟压到约 1.5 分钟，峰值内存从约 500MB 降到约 150MB。</p>
+          <div class="project-tags"><span>Vision</span><span>Photos</span><span>StoreKit</span><span>AdMob</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="project-label">AI / Globalization</span><span>02</span></div>
+          <h3>AIFriends</h3>
+          <p>面向海外市场的 AI 伴侣社交 App。负责实时消息、异步生成状态机、本地数据库、VIP 内购与国际化，支持 27 种语言。</p>
+          <div class="project-tags"><span>Agora RTM</span><span>FMDB</span><span>StoreKit</span><span>27 locales</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="project-label">Computer vision / GPU</span><span>03</span></div>
+          <h3>BodyLooks &amp; Numbers Log</h3>
+          <p>一类做实时美型和 GPU 渲染，一类做摄像头 PPG 健康追踪。核心工作涉及 GLSL、MediaPipe、视频处理、滤波和信号分析。</p>
+          <div class="project-tags"><span>GPUImage</span><span>GLSL</span><span>MediaPipe</span><span>PPG</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="project-label">Independent product</span><span>04</span></div>
+          <h3>X 长截图 / X 自主</h3>
+          <p>独立完成策划、开发、上架和迭代的工具产品。X 长截图累计下载 10 万+、使用 52 万+；X 自主聚焦离线记录、拼接与提醒。</p>
+          <div class="project-tags"><span>独立开发</span><span>算法优化</span><span>内购</span></div>
+          <div>
+            <a class="project-link" href="https://apps.apple.com/app/id6745420963">打开 X 长截图 App Store →</a>
+            <a class="project-link" href="https://apps.apple.com/app/id1610261169">打开 X 自主 App Store →</a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="project-label">AI engineering</span><span>05</span></div>
+          <h3>AI 自动化开发流水线</h3>
+          <p>基于 Claude Code / Codex 的任务队列与三级验证流程：xcodebuild 编译、功能测试、AI 代码 Review；复杂方案由人设计，标准化实现交给 AI 批量执行。</p>
+          <div class="project-tags"><span>Context engineering</span><span>xcodebuild</span><span>AI Review</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="project-label">Current lab</span><span>06</span></div>
+          <h3>Life Coach</h3>
+          <p>把个人成长记录、反思和行动拆成可持续的产品体验。它和 iOS 服务页、七日执行计划一起，构成我当前的公开实验场。</p>
+          <div class="project-tags"><span>AI product</span><span>静态发布</span><span>持续迭代</span></div>
+          <a class="project-link" href="life-coach/">打开 Life Coach →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="page-shell section" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Career / Practice</p>
+          <h2 id="journey-title">一路从业务现场，<br>走到独立交付。</h2>
+        </div>
+        <p class="section-intro">经历过大团队、出海产品和个人产品之后，我现在把注意力放在“能验证、能上线、能持续迭代”的小团队产品上。</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <time class="timeline-date">2025.09 — 2026.05</time>
+          <div class="timeline-content"><h3>乐图卓创 / 高级架构师 · App 出海</h3><p>参与 AI 社交、AI 影像、健康追踪和工具效率等方向的海外 App，从需求、架构、核心算法到商业化与上架交付。</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <time class="timeline-date">2022.11 — 2025.09</time>
+          <div class="timeline-content"><h3>独立 iOS 开发者 &amp; 技术内容创作者</h3><p>独立开发 X 长截图、X 自主；持续实践 SwiftUI、鸿蒙和 AI 编程工具，并把开发过程沉淀成公开内容。</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <time class="timeline-date">2018.06 — 2022.11</time>
+          <div class="timeline-content"><h3>百度 / iOS 高级工程师</h3><p>负责 App 与 Flutter 方向的需求分析、框架搭建和核心开发；从 0 到 1 建设 AB 实验 SDK 与日志处理方案。</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <time class="timeline-date">2015.10 — 2018.05</time>
+          <div class="timeline-content"><h3>证大向上 / iOS 高级工程师</h3><p>负责移动端产品的 iOS 开发维护，并参与需求、H5 与安卓协作排期。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell section" aria-labelledby="services-title">
+      <div class="service-banner">
+        <div>
+          <p class="section-kicker">Open for focused work</p>
+          <h3 id="services-title">你有一个 iOS 想法，下一步是什么？</h3>
+          <p>三档服务按阶段独立定价：单点诊断、MVP 0→1 开发陪跑、七日上架冲刺。服务页包含交付边界、验收终点与咨询入口。</p>
+        </div>
+        <a class="button button-primary" href="ios-services/">查看服务与咨询 →</a>
+      </div>
+    </section>
+
+    <section id="contact" class="page-shell section" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">聊产品，<br>也聊怎么把它做出来。</h2>
+        </div>
+        <p class="section-intro">合作前请尽量带上产品目标、当前进度和一个具体阻塞点；信息越具体，越容易快速判断适合哪一档服务。</p>
+      </div>
+      <div class="contact">
+        <article class="contact-card">
+          <h3>直接联系</h3>
+          <p>邮箱：<a href="mailto:zxm_qwer@163.com">zxm_qwer@163.com</a><br>GitHub：<a href="https://github.com/zhangxiaomeng1">github.com/zhangxiaomeng1</a></p>
+          <div class="contact-links">
+            <a href="ios-services/">三档 iOS 服务</a>
+            <a href="ios-seven-day-plan/">七日执行计划</a>
+            <a href="personGithub.html">完整简历</a>
+          </div>
+        </article>
+        <article class="contact-card">
+          <h3>公开内容</h3>
+          <p>把 iOS 工程、AI 工具和产品实践写成可以复用的公开记录。</p>
+          <div class="contact-links">
+            <a href="https://yangmingai.blog.csdn.net/">CSDN</a>
+            <a href="https://www.jianshu.com/u/949e63975031">简书</a>
+            <a href="https://space.bilibili.com/3546937808653146">哔哩哔哩</a>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAPMOWatY6VMg_GpQ4rMZIVtcQ3B7HQc8wdw-68xV3xYv_1QtcPHAlZQ6urGPGw5Uh?from_tab_name=main">抖音</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-shell site-footer">
+    <p>© 2026 张晓檬 · Built for useful products.</p>
+    <div class="footer-links">
+      <a href="ios-services/">服务</a>
+      <a href="ios-seven-day-plan/">计划</a>
+      <a href="life-coach/">Life Coach</a>
+    </div>
+  </footer>
 </body>
 </html>
