@@ -10,41 +10,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .stage-monogram::first-line { line-height: 1; }
 .stage-monogram { text-shadow: 0 2px 11px rgba(0, 0, 0, .2); }
 .stage-monogram + * { display: none; }
-.stage-ai { width: 92px; height: 92px; left: 28%; top: 13%; padding: 7px; animation-delay: -1.5s; }
-.stage-body { width: 96px; height: 96px; right: 29%; bottom: 12%; padding: 7px; animation-delay: -3.8s; }
-.stage-ai .stage-monogram { background: linear-gradient(145deg, #111827, #8b5cf6 62%, #e879f9); }
-.stage-body .stage-monogram { background: linear-gradient(145deg, #ff7f66, #c43d7c 62%, #6638bf); }
+.stage-ratepilot { width: 92px; height: 92px; left: 28%; top: 13%; padding: 7px; animation-delay: -1.5s; }
+.stage-stamp { width: 96px; height: 96px; right: 29%; bottom: 12%; padding: 7px; animation-delay: -3.8s; }
+.stage-ratepilot .stage-monogram { background: linear-gradient(145deg, #111827, #2563eb 62%, #22d3ee); }
+.stage-stamp .stage-monogram { background: linear-gradient(145deg, #f97316, #d9465f 62%, #7c3aed); }
 
-.card-aifriends { grid-column: span 6; color: #f5f0ff; background: radial-gradient(circle at 75% 15%, rgba(210, 121, 255, .36), transparent 35%), linear-gradient(145deg, #221738, #33214e); }
-.card-aifriends .platform-pill, .card-aifriends p { color: #c6b6de; }
-.card-aifriends .card-number { color: rgba(255, 255, 255, .43); }
-.card-aifriends .card-link { color: #d7a9ff; }
-.card-bodylooks { grid-column: span 6; color: #fff4ef; background: radial-gradient(circle at 73% 18%, rgba(255, 177, 107, .34), transparent 35%), linear-gradient(145deg, #382024, #5b2931); }
-.card-bodylooks .platform-pill, .card-bodylooks p { color: #e4bec0; }
-.card-bodylooks .card-number { color: rgba(255, 255, 255, .43); }
-.card-bodylooks .card-link { color: #ffc18b; }
+.card-ratepilot { grid-column: span 6; color: #eff7ff; background: radial-gradient(circle at 75% 15%, rgba(81, 167, 255, .36), transparent 35%), linear-gradient(145deg, #101d38, #19365a); }
+.card-ratepilot .platform-pill, .card-ratepilot p { color: #b8d1eb; }
+.card-ratepilot .card-number { color: rgba(255, 255, 255, .43); }
+.card-ratepilot .card-link { color: #91d9ff; }
+.card-stamp { grid-column: span 6; color: #fff4ef; background: radial-gradient(circle at 73% 18%, rgba(255, 177, 107, .34), transparent 35%), linear-gradient(145deg, #382024, #5b2931); }
+.card-stamp .platform-pill, .card-stamp p { color: #e4bec0; }
+.card-stamp .card-number { color: rgba(255, 255, 255, .43); }
+.card-stamp .card-link { color: #ffc18b; }
 .new-app-icon { position: absolute; top: 34px; right: 38px; width: 150px; height: 150px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .18); border-radius: 42px; font-size: 42px; font-weight: 820; letter-spacing: -.1em; box-shadow: 0 24px 60px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .24); transform: rotate(6deg); }
 .new-app-icon span { position: absolute; right: 14px; bottom: 13px; color: rgba(255, 255, 255, .62); font-size: 8px; font-weight: 700; letter-spacing: .15em; }
-.icon-ai { background: linear-gradient(145deg, #1d1237, #9355d4 58%, #e083db); }
-.icon-body { background: linear-gradient(145deg, #ff986c, #b94a70 58%, #663db4); }
-.card-aifriends .card-copy, .card-bodylooks .card-copy { max-width: 78%; }
-.card-aifriends .card-copy, .card-bodylooks .card-copy { margin-top: auto; }
-.card-aifriends .card-link, .card-bodylooks .card-link { margin-top: 24px; }
+.icon-ratepilot { background: linear-gradient(145deg, #152d58, #2563eb 58%, #22d3ee); }
+.icon-stamp { background: linear-gradient(145deg, #ff986c, #b94a70 58%, #663db4); }
+.card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 78%; }
+.card-ratepilot .card-copy, .card-stamp .card-copy { margin-top: auto; }
+.card-ratepilot .card-link, .card-stamp .card-link { margin-top: 24px; }
 .about-copy strong { font-weight: 760; }
 .contact > p:not(.overline) { max-width: 800px; }
 
 @media (max-width: 1050px) {
-  .stage-ai { left: 24%; top: 13%; }
-  .stage-body { right: 24%; bottom: 12%; }
-  .card-aifriends, .card-bodylooks { grid-column: span 6; }
+  .stage-ratepilot { left: 24%; top: 13%; }
+  .stage-stamp { right: 24%; bottom: 12%; }
+  .card-ratepilot, .card-stamp { grid-column: span 6; }
 }
 
 @media (max-width: 760px) {
-  .stage-ai { width: 62px; height: 62px; left: 25%; top: 14%; padding: 5px; }
-  .stage-body { width: 64px; height: 64px; right: 24%; bottom: 14%; padding: 5px; }
+  .stage-ratepilot { width: 62px; height: 62px; left: 25%; top: 14%; padding: 5px; }
+  .stage-stamp { width: 64px; height: 64px; right: 24%; bottom: 14%; padding: 5px; }
   .stage-monogram { font-size: 18px; }
   .new-app-icon { top: 28px; right: 28px; width: 116px; height: 116px; border-radius: 34px; font-size: 32px; }
   .new-app-icon span { right: 10px; bottom: 9px; font-size: 7px; }
-  .card-aifriends, .card-bodylooks { grid-column: auto; min-height: 470px; }
-  .card-aifriends .card-copy, .card-bodylooks .card-copy { max-width: 100%; }
+  .card-ratepilot, .card-stamp { grid-column: auto; min-height: 470px; }
+  .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 100%; }
 }
