@@ -35,10 +35,38 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .wechat-card strong { color: #fff; font-size: 17px; }
 .wechat-card span { color: #9b9da4; font-size: 13px; line-height: 1.55; }
 
+.services-section { width: min(1260px, calc(100% - 40px)); margin: 0 auto 160px; }
+.services-intro { max-width: 840px; margin-bottom: 48px; }
+.services-intro h2 { margin: 0 0 22px; font-size: clamp(54px, 6.5vw, 96px); line-height: .94; letter-spacing: -.07em; }
+.services-intro h2 em { color: var(--muted); font-style: normal; }
+.services-intro > p:last-child { max-width: 680px; margin: 0; color: var(--ink-2); font-size: 18px; line-height: 1.65; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.service-card { min-height: 590px; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--ink); background: #fffdf8; }
+.service-card:nth-child(2) { background: #e0e8ff; }
+.service-card:nth-child(3) { color: #fff; background: #11151c; }
+.service-price { margin-bottom: 24px; color: var(--blue); font-size: 42px; font-weight: 850; letter-spacing: -.07em; }
+.service-card:nth-child(3) .service-price { color: #ffca53; }
+.service-card h3 { max-width: 360px; margin: 0 0 14px; font-size: clamp(28px, 3vw, 42px); line-height: .98; letter-spacing: -.06em; }
+.service-tag { min-height: 42px; margin: 0 0 22px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.service-card:nth-child(3) .service-tag { color: #a7abb3; }
+.service-card dl { margin: 0 0 22px; }
+.service-card dl div { padding: 13px 0; border-top: 1px solid currentColor; }
+.service-card dt { color: var(--muted); font-size: 12px; }
+.service-card:nth-child(3) dt { color: #a7abb3; }
+.service-card dd { margin: 5px 0 0; font-size: 14px; line-height: 1.55; }
+.service-boundary { min-height: 70px; margin: auto 0 20px; font-size: 14px; line-height: 1.6; }
+.service-buy { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 15px; color: #fff; background: var(--ink); font-size: 14px; font-weight: 800; }
+.service-buy span { font-size: 18px; transition: transform .2s ease; }
+.service-buy:hover span { transform: translateX(3px); }
+.service-card:nth-child(3) .service-buy { color: var(--ink); background: #fff; }
+.service-notice { margin: 16px 0 0; padding: 22px 25px; border-left: 5px solid #ffca53; color: #5e4b1d; background: #fff0d2; font-size: 14px; line-height: 1.7; }
+
 @media (max-width: 1050px) {
   .stage-ratepilot { left: 24%; top: 13%; }
   .stage-stamp { right: 24%; bottom: 12%; }
   .card-ratepilot, .card-stamp { grid-column: span 6; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: auto; }
 }
 
 @media (max-width: 760px) {
@@ -49,4 +77,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
   .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 100%; }
   .wechat-card { align-items: flex-start; gap: 14px; }
   .wechat-card img { flex-basis: 132px; width: 132px; height: 132px; }
+  .services-section { width: calc(100% - 28px); margin-bottom: 110px; }
+  .services-intro h2 { font-size: clamp(44px, 14vw, 66px); }
+  .services-intro > p:last-child { font-size: 17px; }
+  .service-card { padding: 28px; }
+  .service-price { margin-bottom: 18px; font-size: 38px; }
 }
