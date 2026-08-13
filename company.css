@@ -8,7 +8,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .featured-lead { max-width: 650px; }
 .stage-ratepilot { width: 92px; height: 92px; left: 28%; top: 13%; padding: 7px; animation-delay: -1.5s; }
 .stage-stamp { width: 96px; height: 96px; right: 29%; bottom: 12%; padding: 7px; animation-delay: -3.8s; }
-.stage-ratepilot img, .stage-stamp img { object-fit: cover; }
+.stage-countdown { width: 90px; height: 90px; right: 28%; top: 12%; padding: 7px; animation-delay: -4.9s; }
+.stage-ratepilot img, .stage-stamp img, .stage-countdown img { object-fit: cover; }
 
 .card-ratepilot { grid-column: span 6; color: #eff7ff; background: radial-gradient(circle at 75% 15%, rgba(81, 167, 255, .36), transparent 35%), linear-gradient(145deg, #101d38, #19365a); }
 .card-ratepilot .platform-pill, .card-ratepilot p { color: #b8d1eb; }
@@ -18,6 +19,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 .card-stamp .platform-pill, .card-stamp p { color: #e4bec0; }
 .card-stamp .card-number { color: rgba(255, 255, 255, .43); }
 .card-stamp .card-link { color: #ffc18b; }
+.card-countdown { grid-column: span 12; min-height: 390px; background: radial-gradient(circle at 78% 16%, rgba(255, 120, 126, .24), transparent 34%), linear-gradient(145deg, #fffaf8, #f8e9e8); }
+.card-countdown .platform-pill, .card-countdown p { color: #8b6265; }
+.card-countdown .card-link { color: #c8474f; }
+.card-countdown .card-icon { box-shadow: 0 20px 45px rgba(151, 62, 72, .14); }
 .new-app-icon { position: absolute; top: 34px; right: 38px; width: 150px; height: 150px; overflow: hidden; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .18); border-radius: 42px; box-shadow: 0 24px 60px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .24); transform: rotate(6deg); }
 .new-app-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 78%; }
@@ -67,6 +72,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 @media (max-width: 1050px) {
   .stage-ratepilot { left: 24%; top: 13%; }
   .stage-stamp { right: 24%; bottom: 12%; }
+  .stage-countdown { right: 27%; top: 12%; }
   .card-ratepilot, .card-stamp { grid-column: span 6; }
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: auto; }
@@ -75,9 +81,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro
 @media (max-width: 760px) {
   .stage-ratepilot { width: 62px; height: 62px; left: 25%; top: 14%; padding: 5px; }
   .stage-stamp { width: 64px; height: 64px; right: 24%; bottom: 14%; padding: 5px; }
+  .stage-countdown { width: 60px; height: 60px; right: 26%; top: 12%; padding: 5px; }
   .new-app-icon { top: 28px; right: 28px; width: 116px; height: 116px; border-radius: 34px; }
   .card-ratepilot, .card-stamp { grid-column: auto; min-height: 470px; }
   .card-ratepilot .card-copy, .card-stamp .card-copy { max-width: 100%; }
+  .card-countdown { grid-column: auto; min-height: 470px; }
   .wechat-card { align-items: flex-start; gap: 14px; }
   .wechat-card img { flex-basis: 132px; width: 132px; height: 132px; }
   .services-section { width: calc(100% - 28px); margin-bottom: 110px; }

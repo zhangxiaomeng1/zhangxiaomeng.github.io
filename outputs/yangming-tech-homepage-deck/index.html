@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="pitch-deck-vc" data-theme-base="assets/themes/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="阳明科技｜AI 应用与全球化移动互联网产品介绍">
+  <title>阳明科技｜8 款自有 App</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" id="theme-link" href="assets/themes/pitch-deck-vc.css">
+  <link rel="stylesheet" href="assets/animations/animations.css">
+  <style>
+    :root {
+      --ym-ink: #0b1021;
+      --ym-blue: #176cff;
+      --ym-purple: #7a32df;
+      --ym-cyan: #17c7e8;
+      --ym-lavender: #eef2ff;
+      --ym-line: rgba(11, 16, 33, .11);
+      --ym-soft: #f7f9fd;
+    }
+
+    .slide { padding: 74px 118px 66px; }
+    .slide > .slide-no {
+      position: absolute; right: 118px; bottom: 42px; z-index: 4;
+      color: var(--text-3); font: 700 12px var(--font-mono); letter-spacing: .13em;
+    }
+    .slide.dark { background: var(--ym-ink); color: #fff; }
+    .slide.dark::before {
+      content: ""; position: absolute; inset: -20%; pointer-events: none;
+      background: radial-gradient(circle at 76% 23%, rgba(24, 108, 255, .38), transparent 27%),
+        radial-gradient(circle at 91% 83%, rgba(122, 50, 223, .33), transparent 24%),
+        radial-gradient(circle at 17% 75%, rgba(23, 199, 232, .16), transparent 22%);
+    }
+    .slide.dark > * { position: relative; z-index: 1; }
+    .slide.dark .slide-no { color: rgba(255,255,255,.45); }
+    .slide.dark .kicker { color: #8db6ff; background: none; -webkit-text-fill-color: #8db6ff; }
+    .slide.dark .lede { color: rgba(255,255,255,.74); }
+    .kicker { font-size: 12px; letter-spacing: .14em; font-weight: 800; }
+    .h1, .h2 { color: var(--ym-ink); }
+    .dark .h1, .dark .h2 { color: #fff; }
+    .h1 { font-size: 72px; line-height: 1.02; }
+    .h2 { font-size: 56px; line-height: 1.06; }
+    .lede { font-size: 20px; line-height: 1.65; max-width: 720px; }
+    .muted { color: var(--text-2); }
+    .dark .muted { color: rgba(255,255,255,.64); }
+    .eyebrow-line { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+    .eyebrow-line::before { content:""; width:34px; height:3px; border-radius:99px; background: var(--grad); }
+    .brand-lockup { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.03em; }
+    .brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:10px; color:#fff; background:var(--ym-ink); font-size:21px; font-weight:900; }
+    .dark .brand-mark { background:#fff; color:var(--ym-ink); }
+    .topline { position:absolute; top:42px; left:118px; right:118px; display:flex; justify-content:space-between; align-items:center; z-index:3; }
+    .topline .meta { color:var(--text-3); font:700 11px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; }
+    .dark .topline .meta { color:rgba(255,255,255,.44); }
+
+    /* Cover */
+    .cover { justify-content:flex-start; padding-top:170px; }
+    .cover .cover-copy { width: 58%; }
+    .cover h1 { margin: 0 0 22px; font-size: 82px; max-width: 980px; }
+    .cover h1 span { display:block; background:linear-gradient(110deg,#5d94ff 0%,#ac7fff 58%,#35d5e6 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .cover .cover-sub { font-size:22px; line-height:1.45; color:var(--text-2); max-width:620px; }
+    .cover .cover-cn { margin-top:38px; font-size:14px; color:var(--text-3); font-weight:700; letter-spacing:.08em; }
+    .cover .cover-tags { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+    .cover .cover-tags span { padding:8px 12px; border-radius:999px; background:var(--ym-lavender); color:#4e63a7; font-size:12px; font-weight:700; }
+    .orbit-stage { position:absolute; right:74px; top:137px; width:690px; height:690px; border-radius:50%; }
+    .orbit-stage::before, .orbit-stage::after { content:""; position:absolute; inset:40px; border:1px solid rgba(23,108,255,.18); border-radius:50%; }
+    .orbit-stage::after { inset:142px; border-color:rgba(122,50,223,.18); }
+    .orbit-glow { position:absolute; inset:110px; border-radius:50%; background:radial-gradient(circle, rgba(91,148,255,.26), rgba(140,91,255,.12) 34%, transparent 68%); filter:blur(14px); }
+    .orbit-core { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:190px; height:190px; border-radius:54px; display:grid; place-items:center; text-align:center; color:#fff; background:linear-gradient(145deg,#121a34,#263d88); box-shadow:0 30px 70px rgba(37,72,170,.28), inset 0 1px 0 rgba(255,255,255,.28); }
+    .orbit-core strong { display:block; font-size:72px; line-height:.8; letter-spacing:-.08em; }
+    .orbit-core small { display:block; margin-top:14px; font:700 11px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.68); }
+    .orbit-icon { position:absolute; width:95px; height:95px; padding:7px; border-radius:27px; background:#fff; box-shadow:0 18px 45px rgba(33,55,117,.16), 0 0 0 1px rgba(23,108,255,.1); }
+    .orbit-icon img { width:100%; height:100%; object-fit:cover; border-radius:21px; }
+    .orbit-icon.i1 { left:84px; top:92px; }
+    .orbit-icon.i2 { right:81px; top:87px; }
+    .orbit-icon.i3 { left:18px; top:294px; }
+    .orbit-icon.i4 { right:11px; top:292px; }
+    .orbit-icon.i5 { left:109px; bottom:74px; }
+    .orbit-icon.i6 { right:104px; bottom:74px; }
+    .orbit-icon.i7 { left:50%; bottom:7px; transform:translateX(-50%); }
+    .orbit-icon.i8 { left:50%; top:7px; transform:translateX(-50%); }
+    .orbit-label { position:absolute; bottom:18px; left:0; color:#69748e; font-size:12px; font-weight:700; letter-spacing:.12em; }
+
+    /* Positioning */
+    .positioning-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap:72px; align-items:center; margin-top:18px; }
+    .positioning-copy .lede { margin-bottom:34px; }
+    .metric-row { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .metric { padding-top:18px; border-top:2px solid var(--ym-ink); }
+    .metric strong { display:block; font-size:62px; line-height:.95; letter-spacing:-.06em; color:var(--ym-ink); }
+    .metric span { display:block; margin-top:10px; color:var(--text-2); font-size:14px; line-height:1.35; }
+    .system-card { position:relative; min-height:420px; overflow:hidden; padding:34px; border-radius:30px; color:#fff; background:linear-gradient(145deg,#101b3a,#244d9d 60%,#6e2dc5); box-shadow:var(--shadow-lg); }
+    .system-card::after { content:""; position:absolute; width:370px; height:370px; right:-160px; bottom:-180px; border:1px solid rgba(255,255,255,.22); border-radius:50%; box-shadow:0 0 0 34px rgba(255,255,255,.05), 0 0 0 68px rgba(255,255,255,.04); }
+    .system-card h3 { color:#fff; font-size:30px; margin:0 0 12px; }
+    .system-card p { max-width:330px; color:rgba(255,255,255,.73); font-size:16px; line-height:1.6; }
+    .system-stack { position:absolute; left:34px; right:34px; bottom:34px; display:grid; gap:10px; }
+    .system-stack span { padding:13px 15px; border:1px solid rgba(255,255,255,.2); border-radius:13px; background:rgba(255,255,255,.08); color:rgba(255,255,255,.88); font-size:13px; font-weight:700; }
+    .system-stack b { color:#9be5ff; margin-right:7px; }
+
+    /* Portfolio */
+    .portfolio-head { display:flex; align-items:end; justify-content:space-between; gap:30px; }
+    .portfolio-head p { max-width:500px; margin:0 0 7px; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:32px; }
+    .app-tile { min-height:205px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid var(--ym-line); border-radius:20px; background:#fff; box-shadow:0 8px 22px rgba(32,53,96,.05); }
+    .app-tile:nth-child(1) { background:linear-gradient(145deg,#f1f5ff,#fff); border-color:#cbd9ff; }
+    .app-tile:nth-child(2) { background:linear-gradient(145deg,#eff7ff,#fff); }
+    .app-tile:nth-child(3) { background:linear-gradient(145deg,#f4f1ff,#fff); }
+    .app-tile:nth-child(4) { background:linear-gradient(145deg,#f0fbff,#fff); }
+    .app-tile:nth-child(5) { background:linear-gradient(145deg,#fff8ee,#fff); }
+    .app-tile:nth-child(6) { background:linear-gradient(145deg,#edf7ff,#fff); }
+    .app-tile:nth-child(7) { background:linear-gradient(145deg,#fff5f3,#fff); }
+    .app-tile .tile-top { display:flex; align-items:center; justify-content:space-between; }
+    .app-tile img { width:56px; height:56px; object-fit:cover; border-radius:16px; box-shadow:0 9px 18px rgba(19,49,111,.12); }
+    .app-tile .tile-no { color:#9ba5ba; font:700 12px var(--font-mono); }
+    .app-tile h3 { font-size:21px; margin:12px 0 4px; }
+    .app-tile p { margin:0; color:var(--text-2); font-size:12px; line-height:1.5; }
+    .pill { display:inline-flex; align-items:center; width:max-content; padding:5px 9px; border-radius:999px; background:rgba(27,91,222,.09); color:#3159a9; font-size:10px; font-weight:800; letter-spacing:.04em; }
+    .portfolio-foot { display:flex; justify-content:space-between; align-items:center; gap:30px; margin-top:22px; padding-top:18px; border-top:1px solid var(--ym-line); color:var(--text-2); font-size:13px; }
+    .portfolio-foot strong { color:var(--ym-ink); }
+
+    /* Shared system */
+    .shared-layout { display:grid; grid-template-columns:.9fr 1.1fr; gap:72px; align-items:center; }
+    .shared-layout .lede { max-width:560px; }
+    .loop { margin-top:30px; display:flex; align-items:center; gap:12px; }
+    .loop b { display:grid; place-items:center; width:45px; height:45px; border-radius:50%; color:#fff; background:linear-gradient(145deg,#1b72ff,#812ede); font:800 15px var(--font-mono); }
+    .loop span { color:rgba(255,255,255,.56); font-size:13px; font-weight:700; }
+    .loop i { width:38px; height:1px; background:rgba(255,255,255,.24); }
+    .shared-card { padding:28px; border:1px solid rgba(255,255,255,.15); border-radius:26px; background:rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+    .shared-card .shared-title { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:20px; color:#fff; font-size:17px; font-weight:800; }
+    .shared-card .shared-title small { color:#9ab9ff; font:700 11px var(--font-mono); letter-spacing:.1em; }
+    .shared-flow { display:grid; grid-template-columns:repeat(5,1fr); gap:9px; }
+    .shared-node { min-height:145px; padding:17px 14px; border:1px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(255,255,255,.07); }
+    .shared-node .node-no { color:#8bb1ff; font:700 11px var(--font-mono); }
+    .shared-node strong { display:block; margin-top:20px; color:#fff; font-size:16px; line-height:1.2; }
+    .shared-node p { margin:8px 0 0; color:rgba(255,255,255,.58); font-size:11px; line-height:1.5; }
+    .shared-note { margin-top:20px; padding:16px 18px; border-left:3px solid #7ddcff; color:rgba(255,255,255,.72); background:rgba(255,255,255,.06); font-size:13px; line-height:1.6; }
+
+    /* Product slides */
+    .product-layout { display:grid; grid-template-columns:1fr 1fr; gap:78px; align-items:center; }
+    .product-layout .lede { max-width:620px; }
+    .product-brand { display:flex; align-items:center; gap:13px; margin-bottom:18px; }
+    .product-brand img { width:64px; height:64px; border-radius:19px; box-shadow:0 13px 28px rgba(36,77,157,.2); }
+    .product-brand strong { display:block; font-size:21px; }
+    .product-brand span { display:block; color:var(--text-3); font-size:12px; margin-top:2px; }
+    .steps-list { display:grid; gap:10px; margin-top:28px; }
+    .step-row { display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:start; padding:14px 16px; border:1px solid var(--ym-line); border-radius:15px; background:#fff; }
+    .step-row b { display:grid; place-items:center; width:28px; height:28px; border-radius:9px; color:#fff; background:var(--ym-ink); font:800 11px var(--font-mono); }
+    .step-row strong { display:block; font-size:14px; line-height:1.2; }
+    .step-row span { display:block; color:var(--text-2); font-size:12px; margin-top:4px; line-height:1.45; }
+    .app-button { display:inline-flex; align-items:center; gap:14px; margin-top:25px; padding:13px 17px; border-radius:13px; background:var(--ym-ink); color:#fff; font-size:13px; font-weight:800; box-shadow:0 12px 24px rgba(11,16,33,.16); }
+    .app-button:hover { text-decoration:none; transform:translateY(-1px); }
+    .phone-stage { position:relative; min-height:520px; display:grid; place-items:center; }
+    .phone-stage::before { content:""; position:absolute; width:470px; height:470px; border-radius:50%; background:radial-gradient(circle,rgba(60,131,255,.22),rgba(151,95,255,.11) 44%,transparent 70%); }
+    .phone { position:relative; width:230px; height:460px; padding:16px; border:8px solid #111a33; border-radius:42px; background:linear-gradient(155deg,#eaf1ff,#c8dbff); box-shadow:0 30px 60px rgba(33,64,145,.22), inset 0 1px 0 rgba(255,255,255,.9); transform:rotate(4deg); }
+    .phone::before { content:""; position:absolute; top:8px; left:50%; width:82px; height:20px; transform:translateX(-50%); border-radius:0 0 13px 13px; background:#111a33; }
+    .phone-screen { height:100%; padding:42px 12px 14px; border-radius:28px; background:linear-gradient(180deg,#f8fbff,#d9e7ff); overflow:hidden; }
+    .phone-time { color:#304267; font:700 11px var(--font-mono); }
+    .phone-heading { margin-top:43px; color:#172445; }
+    .phone-heading small { display:block; color:#5570ad; font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .phone-heading strong { display:block; margin-top:7px; font-size:24px; line-height:.96; letter-spacing:-.05em; }
+    .ring { position:relative; width:130px; height:130px; margin:24px auto; display:grid; place-items:center; border-radius:50%; background:conic-gradient(#266cff 0 76%, rgba(38,108,255,.12) 76%); }
+    .ring::before { content:""; position:absolute; width:104px; height:104px; border-radius:50%; background:#e5efff; }
+    .ring span { position:relative; color:#1e4eb8; font-size:20px; font-weight:900; }
+    .ring small { display:block; text-align:center; font-size:8px; letter-spacing:.12em; }
+    .phone-items { display:grid; gap:7px; }
+    .phone-items div { display:flex; justify-content:space-between; padding:10px 11px; border-radius:12px; color:#314571; background:rgba(255,255,255,.68); font-size:10px; font-weight:700; }
+    .phone-items em { color:#426de0; font-style:normal; }
+    .float-note { position:absolute; padding:13px 16px; border-radius:15px; background:#fff; box-shadow:0 13px 28px rgba(31,59,130,.14); }
+    .float-note small { display:block; color:var(--text-3); font:700 10px var(--font-mono); letter-spacing:.1em; }
+    .float-note strong { display:block; margin-top:4px; font-size:15px; }
+    .float-left { left:2px; top:128px; }
+    .float-right { right:0; bottom:124px; }
+    .float-right strong { color:#5b39b1; }
+
+    .clean-slide { background:linear-gradient(135deg,#f4f8ff,#eef2ff 60%,#f9fbff); }
+    .clean-visual { position:relative; min-height:500px; display:grid; place-items:center; }
+    .clean-visual::before { content:""; position:absolute; width:440px; height:440px; border-radius:50%; background:radial-gradient(circle,rgba(52,118,255,.25),rgba(114,73,255,.1) 50%,transparent 73%); }
+    .clean-icon { position:relative; width:245px; height:245px; border-radius:62px; transform:rotate(-7deg); box-shadow:0 28px 60px rgba(27,83,194,.27); }
+    .clean-icon img { width:100%; height:100%; object-fit:cover; border-radius:inherit; }
+    .clean-icon.mac { position:absolute; width:116px; height:116px; right:60px; bottom:70px; border:9px solid #fff; border-radius:32px; transform:rotate(9deg); box-shadow:0 20px 40px rgba(27,83,194,.22); }
+    .clean-label { position:absolute; left:40px; bottom:56px; padding:12px 14px; border-radius:13px; color:#2f4f92; background:rgba(255,255,255,.76); box-shadow:0 10px 20px rgba(27,83,194,.1); font-size:12px; font-weight:800; }
+    .promise-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px; }
+    .promise { padding:16px; min-height:125px; border-radius:16px; background:rgba(255,255,255,.78); border:1px solid rgba(77,113,193,.15); }
+    .promise b { display:block; color:#4a6bb0; font:800 11px var(--font-mono); letter-spacing:.1em; }
+    .promise strong { display:block; margin-top:15px; font-size:15px; }
+    .promise p { margin:5px 0 0; color:var(--text-2); font-size:11px; line-height:1.45; }
+    .strategic-note { display:inline-flex; padding:7px 10px; border-radius:999px; color:#3159a9; background:#dce8ff; font:800 11px var(--font-mono); letter-spacing:.08em; }
+
+    /* Founder */
+    .founder-layout { display:grid; grid-template-columns:1fr 1fr; gap:82px; align-items:center; }
+    .founder-copy .lede { max-width:580px; }
+    .founder-quote { margin-top:28px; padding:20px 0 0; border-top:2px solid var(--ym-ink); color:var(--ym-ink); font-size:20px; line-height:1.55; font-weight:700; }
+    .founder-card { position:relative; padding:34px; border-radius:28px; color:#fff; background:linear-gradient(145deg,#0d1634,#254d9d 64%,#6a2cc0); box-shadow:var(--shadow-lg); overflow:hidden; }
+    .founder-card::after { content:"Y"; position:absolute; right:-15px; bottom:-70px; color:rgba(255,255,255,.09); font-size:320px; line-height:1; font-weight:900; }
+    .founder-card .card-kicker { color:#98b9ff; font:700 11px var(--font-mono); letter-spacing:.13em; }
+    .founder-card h3 { color:#fff; font-size:33px; margin:18px 0 5px; }
+    .founder-card .role { color:rgba(255,255,255,.68); font-size:14px; }
+    .founder-numbers { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:42px; }
+    .founder-numbers div { padding-top:14px; border-top:1px solid rgba(255,255,255,.25); }
+    .founder-numbers strong { display:block; font-size:36px; line-height:1; }
+    .founder-numbers span { display:block; margin-top:8px; color:rgba(255,255,255,.6); font-size:11px; line-height:1.4; }
+    .capability-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:32px; }
+    .capability-list span { padding:8px 11px; border:1px solid var(--ym-line); border-radius:999px; color:#43516d; background:#fff; font-size:12px; font-weight:700; }
+
+    /* CTA */
+    .cta { text-align:center; align-items:center; }
+    .cta .kicker { color:#9cbcff; }
+    .cta .h1 { max-width:1060px; font-size:84px; }
+    .cta .h1 span { display:block; background:linear-gradient(110deg,#fff 0%,#9fc4ff 47%,#cb9cff 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .cta .lede { max-width:650px; color:rgba(255,255,255,.7); }
+    .cta-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:13px; margin-top:28px; }
+    .cta-actions a { display:inline-flex; align-items:center; gap:9px; padding:14px 18px; border-radius:13px; font-size:13px; font-weight:800; }
+    .cta-primary { color:var(--ym-ink); background:#fff; }
+    .cta-secondary { color:#fff; border:1px solid rgba(255,255,255,.27); background:rgba(255,255,255,.08); }
+    .cta-actions a:hover { text-decoration:none; transform:translateY(-1px); }
+    .cta-foot { position:absolute; left:118px; right:118px; bottom:42px; display:flex; justify-content:space-between; align-items:center; color:rgba(255,255,255,.45); font-size:11px; letter-spacing:.08em; }
+
+    .notes { display:none; }
+    @media (max-width: 1100px) {
+      .slide { padding-left:58px; padding-right:58px; }
+      .topline { left:58px; right:58px; }
+      .slide > .slide-no, .cta-foot { right:58px; left:58px; }
+      .cover .cover-copy { width:61%; }
+      .orbit-stage { right:-55px; transform:scale(.83); transform-origin:top right; }
+      .positioning-grid, .shared-layout, .product-layout, .founder-layout { gap:40px; }
+      .portfolio-grid { grid-template-columns:repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="deck">
+
+  <section class="slide cover" data-title="Cover">
+    <div class="topline">
+      <div class="brand-lockup"><span class="brand-mark">Y</span><span>阳明科技</span></div>
+      <span class="meta">AI APPS · GLOBAL DISTRIBUTION · 2026</span>
+    </div>
+    <div class="cover-copy">
+      <p class="kicker">AI 应用与全球化移动互联网产品</p>
+      <h1>8 款自有 App。<span>用真实使用与收入决定下一步。</span></h1>
+      <p class="cover-sub">一个 AI-native 的海外 App 产品组合，持续运营面向全球市场的 iPhone、iPad 与 Mac 产品。</p>
+      <p class="cover-cn">阳明科技创始人｜前百度｜10+ 年 iOS｜8 款 App 运营</p>
+      <div class="cover-tags"><span>AI 工具</span><span>效率提升</span><span>海外 App Store</span><span>OPC</span></div>
+    </div>
+    <div class="orbit-stage" aria-label="8 款 App 产品矩阵">
+      <div class="orbit-glow"></div>
+      <div class="orbit-core"><div><strong>8</strong><small>app portfolio</small></div></div>
+      <div class="orbit-icon i1"><img src="assets/app-icons/focuslock.png" alt="FocusLock"></div>
+      <div class="orbit-icon i2"><img src="assets/app-icons/deepcleanup-ios.png" alt="DeepCleanup"></div>
+      <div class="orbit-icon i3"><img src="assets/app-icons/deepcleanup-mac.png" alt="DeepCleanup for Mac"></div>
+      <div class="orbit-icon i4"><img src="assets/app-icons/longshot.png" alt="LongShot"></div>
+      <div class="orbit-icon i5"><img src="assets/app-icons/lifelog.png" alt="LifeLog"></div>
+      <div class="orbit-icon i6"><img src="assets/app-icons/ratepilot.png" alt="RatePilot"></div>
+      <div class="orbit-icon i7"><img src="assets/app-icons/stamp-studio.png" alt="Stamp Studio"></div>
+      <div class="orbit-icon i8"><img src="assets/app-icons/x-autonomy-countdown.png" alt="X自主倒计时"></div>
+    </div>
+    <span class="orbit-label">产品组合 · 产品研发 · 发行与商业化</span>
+    <span class="slide-no">01 / 08</span>
+    <div class="notes">封面介绍：阳明科技不是单一产品，而是一组面向全球市场的自有 App。演讲时先用“8 款自有 App”建立总体认知，再进入产品与系统。</div>
+  </section>
+
+  <section class="slide" data-title="Positioning">
+    <div class="topline"><span class="meta">01 / POSITIONING</span><span class="meta">YANGMING TECHNOLOGY</span></div>
+    <div class="positioning-grid">
+      <div class="positioning-copy">
+        <div class="eyebrow-line"><p class="kicker">THE THESIS</p></div>
+        <h2 class="h2">不是在做很多 App，<br><span class="gradient-text">而是在跑一套产品系统。</span></h2>
+        <p class="lede">产品研发、StoreKit 商业化、ASO、本地化、数据分析和 AI 自动化共享同一套内部增长系统，只为提高自有 App 的获取、激活、留存与收入。</p>
+        <div class="metric-row">
+          <div class="metric"><strong>10+</strong><span>年 iOS<br>工程经验</span></div>
+          <div class="metric"><strong>8</strong><span>款 App<br>运营与交付</span></div>
+          <div class="metric"><strong>4</strong><span>个产品方向<br>面向全球市场</span></div>
+        </div>
+      </div>
+      <div class="system-card">
+        <h3>AI-native<br>海外 App 组合</h3>
+        <p>把一套可复用的产品能力，放进不同的用户场景里持续验证。</p>
+        <div class="system-stack">
+          <span><b>01</b>产品研发 · iPhone / iPad / Mac</span>
+          <span><b>02</b>发行与商业化 · App Store</span>
+          <span><b>03</b>真实用户行为 · 决定下一步</span>
+        </div>
+      </div>
+    </div>
+    <span class="slide-no">02 / 08</span>
+    <div class="notes">这一页讲“公司是什么”。关键不是“有 8 个项目”，而是 8 个产品共享产品、发行、商业化和数据能力，形成可重复的产品循环。</div>
+  </section>
+
+  <section class="slide" data-title="App Portfolio">
+    <div class="topline"><span class="meta">02 / APP PORTFOLIO</span><span class="meta">IPHONE · IPAD · MAC</span></div>
+    <div class="portfolio-head">
+      <div><div class="eyebrow-line"><p class="kicker">THE PORTFOLIO</p></div><h2 class="h2">8 款 App，<br><span class="gradient-text">贯穿从产品到上架。</span></h2></div>
+      <p class="muted">覆盖清理、专注、长截图、个人记录、App 定价与 PDF 签名盖章，面向全球 App Store 持续迭代产品与商业化体验。</p>
+    </div>
+    <div class="portfolio-grid">
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/focuslock.png" alt="FocusLock"><span class="tile-no">01</span></div><div><span class="pill">效率提升 · 主产品</span><h3>FocusLock</h3><p>屏蔽干扰，先完成一次明确的专注任务。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/deepcleanup-ios.png" alt="DeepCleanup"><span class="tile-no">02</span></div><div><span class="pill">AI 工具 · 战略产品</span><h3>DeepCleanup</h3><p>先确认可释放空间，再安全决定是否删除。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/deepcleanup-mac.png" alt="DeepCleanup for Mac"><span class="tile-no">03</span></div><div><span class="pill">Mac · AI 工具</span><h3>DeepCleanup for Mac</h3><p>延伸同一套清理产品家族与商业化体验。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/longshot.png" alt="LongShot"><span class="tile-no">04</span></div><div><span class="pill">效率提升</span><h3>LongShot</h3><p>把零散截图拼成一张连续、清晰的长图。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/lifelog.png" alt="LifeLog"><span class="tile-no">05</span></div><div><span class="pill">个人记录</span><h3>LifeLog</h3><p>倒计时、重要日子、私密记录与生活片段。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/ratepilot.png" alt="RatePilot"><span class="tile-no">06</span></div><div><span class="pill">海外 · 开发者工具</span><h3>RatePilot</h3><p>比较不同市场的 App 与订阅定价策略。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/stamp-studio.png" alt="Stamp Studio"><span class="tile-no">07</span></div><div><span class="pill">iPhone / iPad · 效率工具</span><h3>Stamp Studio</h3><p>导入文档、创建签名和印章并导出 PDF。</p></div></article>
+      <article class="app-tile"><div class="tile-top"><img src="assets/app-icons/x-autonomy-countdown.png" alt="X自主倒计时"><span class="tile-no">08</span></div><div><span class="pill">Mac · 效率提升</span><h3>X自主倒计时</h3><p>常驻菜单栏的专注倒计时，记录每次完成的专注结果。</p></div></article>
+    </div>
+    <div class="portfolio-foot"><span><strong>产品方向：</strong>AI 社交 · AI 工具 · 健康管理 · 效率提升</span><span>面向全球 App Store 的产品研发与运营</span></div>
+    <span class="slide-no">03 / 08</span>
+    <div class="notes">产品组合页快速扫过 8 款产品。不要逐个展开，重点让听众看到“产品方向不同，但共享同一套交付与商业化能力”。</div>
+  </section>
+
+  <section class="slide dark" data-title="Shared Growth System">
+    <div class="topline"><span class="meta">03 / SHARED GROWTH SYSTEM</span><span class="meta">BUILD → SHIP → LEARN</span></div>
+    <div class="shared-layout">
+      <div>
+        <div class="eyebrow-line"><p class="kicker">THE OPERATING SYSTEM</p></div>
+        <h2 class="h2">产品是独立的，<br><span class="gradient-text">能力是共享的。</span></h2>
+        <p class="lede">每一款产品都从一个明确的用户问题出发，经过研发、上架、商业化和真实行为验证，再决定下一步资源投入。</p>
+        <div class="loop"><b>01</b><span>把一个变量讲清楚</span><i></i><b>02</b><span>把一次体验跑完整</span><i></i><b>03</b><span>用结果继续投资</span></div>
+      </div>
+      <div class="shared-card">
+        <div class="shared-title"><span>一套内部增长系统</span><small>REUSABLE CAPABILITIES</small></div>
+        <div class="shared-flow">
+          <div class="shared-node"><span class="node-no">01</span><strong>研发</strong><p>Swift · SwiftUI · Objective-C</p></div>
+          <div class="shared-node"><span class="node-no">02</span><strong>发行</strong><p>海外上架 · ASO · 本地化</p></div>
+          <div class="shared-node"><span class="node-no">03</span><strong>商业化</strong><p>StoreKit · 订阅 · 买断</p></div>
+          <div class="shared-node"><span class="node-no">04</span><strong>数据</strong><p>行为分析 · 获取 · 留存</p></div>
+          <div class="shared-node"><span class="node-no">05</span><strong>自动化</strong><p>AI Agent · 标准化交付</p></div>
+        </div>
+        <div class="shared-note">本期只让重点产品得到增长资源；其余产品维持可用，不用下载量替代激活、留存、付费与退款结果。</div>
+      </div>
+    </div>
+    <span class="slide-no">04 / 08</span>
+    <div class="notes">这一页用来解释 OPC 的工作方式：多个产品不是多个孤岛，而是共享一套研发、发行、商业化、数据和 AI 自动化能力。可以停在“真实行为验证”上做转场。</div>
+  </section>
+
+  <section class="slide" data-title="FocusLock">
+    <div class="topline"><span class="meta">04 / CURRENT FOCUS</span><span class="meta">IPHONE · PRIMARY PRODUCT</span></div>
+    <div class="product-layout">
+      <div>
+        <div class="product-brand"><img src="assets/app-icons/focuslock.png" alt="FocusLock"><div><strong>FocusLock</strong><span>本期主收入产品</span></div></div>
+        <h2 class="h2">先完成一件事，<br><span class="gradient-text">再开始刷。</span></h2>
+        <p class="lede">FocusLock 帮助独立开发者与创作者在工作前屏蔽最容易打断自己的 App，完成一次专注时段，并把自动规则留给下一次工作。</p>
+        <div class="steps-list">
+          <div class="step-row"><b>01</b><div><strong>选择</strong><span>选择最容易打断工作的 App 或网站</span></div></div>
+          <div class="step-row"><b>02</b><div><strong>锁定</strong><span>启动一次明确时长的 FocusLock Session</span></div></div>
+          <div class="step-row"><b>03</b><div><strong>完成</strong><span>完成任务后，再决定是否继续刷手机</span></div></div>
+        </div>
+        <a class="app-button" href="https://apps.apple.com/us/app/focuslock-app-blocker/id6781309683" target="_blank" rel="noopener noreferrer">在 App Store 下载 <span>↗</span></a>
+      </div>
+      <div class="phone-stage">
+        <div class="float-note float-left"><small>FOUNDER</small><strong>前百度 · 10+ 年 iOS</strong></div>
+        <div class="phone"><div class="phone-screen"><div class="phone-time">9:41</div><div class="phone-heading"><small>FocusLock Session</small><strong>Ship what matters.</strong></div><div class="ring"><span>25<small>MIN</small></span></div><div class="phone-items"><div><span>Choose</span><em>1</em></div><div><span>Lock</span><em>2</em></div><div><span>Ship</span><em>3</em></div></div></div></div>
+        <div class="float-note float-right"><small>PRODUCT LOOP</small><strong>Build → Ship</strong></div>
+      </div>
+    </div>
+    <span class="slide-no">05 / 08</span>
+    <div class="notes">FocusLock 是本期主产品。讲述顺序建议是：问题（容易被打断）→ 一次完整体验（选择、锁定、完成）→ 价值判断（真实完成与持续使用）。</div>
+  </section>
+
+  <section class="slide clean-slide" data-title="DeepCleanup">
+    <div class="topline"><span class="meta">05 / STRATEGIC PRODUCT</span><span class="meta">IPHONE + MAC</span></div>
+    <div class="product-layout">
+      <div>
+        <span class="strategic-note">STRATEGIC · 40%</span>
+        <h2 class="h2" style="margin-top:22px">先看能释放多少空间，<br><span class="gradient-text">再决定删除。</span></h2>
+        <p class="lede">DeepCleanup 扫描重复照片、截图和大视频，先确认可释放空间，再安全决定是否删除；Mac 版本延伸同一套产品家族与商业化体验。</p>
+        <div class="promise-row">
+          <div class="promise"><b>01 / SCAN</b><strong>扫描</strong><p>找出重复照片、截图和大视频。</p></div>
+          <div class="promise"><b>02 / PROVE</b><strong>证明</strong><p>先看结果，再给出空间释放证明。</p></div>
+          <div class="promise"><b>03 / DECIDE</b><strong>决策</strong><p>让用户安全决定删除与购买。</p></div>
+        </div>
+      </div>
+      <div class="clean-visual"><div class="clean-icon"><img src="assets/app-icons/deepcleanup-ios.png" alt="DeepCleanup"></div><div class="clean-icon mac"><img src="assets/app-icons/deepcleanup-mac.png" alt="DeepCleanup for Mac"></div><div class="clean-label">iPhone + Mac · AI 工具</div></div>
+    </div>
+    <span class="slide-no">06 / 08</span>
+    <div class="notes">DeepCleanup 是本期战略产品。核心不是“清理功能很多”，而是先让用户看到可释放空间、建立安全感，再做付费决策。Mac 版扩展产品家族。</div>
+  </section>
+
+  <section class="slide" data-title="Founder & Capabilities">
+    <div class="topline"><span class="meta">06 / ABOUT THE FOUNDER</span><span class="meta">ONE OPC · ONE PRODUCT TEAM</span></div>
+    <div class="founder-layout">
+      <div class="founder-copy">
+        <div class="eyebrow-line"><p class="kicker">ABOUT YANGMING TECHNOLOGY</p></div>
+        <h2 class="h2">一个 OPC。<br><span class="gradient-text">把产品跑起来。</span></h2>
+        <p class="lede">阳明科技创始人，前百度，10+ 年 iOS 工程经验，持续运营 8 款自有 App。公开分享产品实验与结果，并承接 iOS、AI 应用与海外 App 产品开发服务。</p>
+        <p class="founder-quote">用真实产品、真实用户行为和实收，决定下一步。</p>
+        <div class="capability-list"><span>Swift</span><span>SwiftUI</span><span>Objective-C</span><span>AI Agent</span><span>StoreKit</span><span>Photos / GPU</span><span>ASO / SEO</span><span>App 投流</span><span>海外上架</span></div>
+      </div>
+      <div class="founder-card"><span class="card-kicker">FOUNDER / BUILDER / OPERATOR</span><h3>张晓檬</h3><div class="role">AI 应用与全球化移动互联网产品</div><div class="founder-numbers"><div><strong>10+</strong><span>年 iOS<br>工程经验</span></div><div><strong>7</strong><span>款 App<br>运营与交付</span></div><div><strong>4</strong><span>个产品方向<br>全球市场</span></div></div></div>
+    </div>
+    <span class="slide-no">07 / 08</span>
+    <div class="notes">最后一页能力与创始人。只讲与产品闭环直接相关的能力：原生研发、商业化、发行、数据和 AI 自动化。重点是“把产品跑起来”，不是单纯履历展示。</div>
+  </section>
+
+  <section class="slide dark cta" data-title="Start With One Session">
+    <div class="topline"><div class="brand-lockup"><span class="brand-mark">Y</span><span>阳明科技</span></div><span class="meta">BUILT FOR USEFUL PRODUCTS</span></div>
+    <p class="kicker">START WITH ONE SESSION</p>
+    <h1 class="h1">先完成一件事，<span>再决定它是否值得留下。</span></h1>
+    <p class="lede">选择最容易打断你的一个 App，完成一次 FocusLock Session。真实的阻断、完成与持续使用，比功能清单更能证明产品价值。</p>
+    <div class="cta-actions"><a class="cta-primary" href="https://apps.apple.com/us/app/focuslock-app-blocker/id6781309683" target="_blank" rel="noopener noreferrer">在 App Store 下载 ↗</a><a class="cta-secondary" href="https://x.com/x_autonomy" target="_blank" rel="noopener noreferrer">关注公开实验 · @x_autonomy ↗</a></div>
+    <div class="cta-foot"><span>阳明科技 · AI 应用与全球化移动互联网产品</span><span>© 2026</span></div>
+    <span class="slide-no">08 / 08</span>
+    <div class="notes">收束方式：让对方记住一个动作——下载 FocusLock，完成一次 Session。其他产品与公开实验可以作为后续了解入口。</div>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>
