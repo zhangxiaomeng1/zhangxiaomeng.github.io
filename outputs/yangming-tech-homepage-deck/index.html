@@ -224,6 +224,31 @@
       .positioning-grid, .shared-layout, .product-layout, .founder-layout { gap:40px; }
       .portfolio-grid { grid-template-columns:repeat(3,1fr); }
     }
+    @media (max-width: 760px) {
+      .slide { padding:54px 30px 48px; }
+      .topline { left:30px; right:30px; }
+      .topline .meta { display:none; }
+      .cover { padding-top:112px; }
+      .cover .cover-copy { width:100%; }
+      .cover h1 { font-size:56px; }
+      .cover .cover-sub { font-size:18px; }
+      .orbit-stage { display:none; }
+      .positioning-grid, .shared-layout, .product-layout, .founder-layout { grid-template-columns:1fr; gap:28px; }
+      .system-card { min-height:300px; }
+      .portfolio-head { display:block; }
+      .portfolio-head p { margin-top:18px; }
+      .portfolio-grid { grid-template-columns:repeat(2,1fr); gap:10px; margin-top:24px; }
+      .app-tile { min-height:180px; padding:14px; border-radius:16px; }
+      .app-tile img { width:44px; height:44px; border-radius:13px; }
+      .app-tile h3 { font-size:17px; line-height:1.15; }
+      .app-tile p { font-size:11px; }
+    }
+    @media (max-width: 520px) {
+      .slide { padding-left:20px; padding-right:20px; }
+      .topline { left:20px; right:20px; }
+      .cover h1 { font-size:47px; }
+      .portfolio-grid { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
