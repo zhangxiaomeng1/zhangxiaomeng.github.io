@@ -3,105 +3,56 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const publicDir = path.join(__dirname, '..', 'public');
-const html = fs.readFileSync(path.join(publicDir, 'index.html'), 'utf8');
+const rootDir = path.join(__dirname, '..', '..', '..');
+const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
 
-const apps = [
-  {
-    id: 'deepcleanup-ios',
-    priority: '1',
-    href: 'https://apps.apple.com/us/app/deepcleanup-photo-cleaner/id6777354576',
-  },
-  {
-    id: 'deepcleanup-mac',
-    priority: '2',
-    href: 'https://apps.apple.com/us/app/deepcleanup/id6777946333?mt=12',
-  },
-  {
-    id: 'focuslock',
-    priority: '3',
-    href: 'https://apps.apple.com/us/app/focuslock-app-blocker/id6781309683',
-  },
-  {
-    id: 'longshot',
-    priority: '4',
-    href: 'https://apps.apple.com/us/app/longshot-screenshot-stitch/id6745420963',
-  },
-  {
-    id: 'lifelog',
-    priority: '5',
-    href: 'https://apps.apple.com/us/app/lifelog-countdown-journal/id1610261169',
-  },
-];
+const countdownStoreUrl = 'https://apps.apple.com/us/app/x%E8%87%AA%E4%B8%BB%E5%80%92%E8%AE%A1%E6%97%B6/id6504705716?mt=12';
 
-test('renders the five products in the PDF-recommended studio order', () => {
+test('keeps the original homepage sections and service architecture', () => {
+  assert.ok(html.includes('id="services"'));
+  assert.ok(html.includes('id="contact"'));
+  assert.ok(html.includes('把 AI 应用'));
+  assert.ok(html.includes('三档独立服务'));
+});
+
+test('adds X自主倒计时 as the eighth app without reordering the original seven', () => {
   const cards = [...html.matchAll(/<article[^>]+class="[^"]*app-card[^"]*"[^>]*data-app="([^"]+)"[^>]*data-priority="([^"]+)"/g)]
-    .map((match) => ({ id: match[1], priority: match[2] }));
+    .map((match) => ({ id: match[1], priority: Number(match[2]) }));
 
-  assert.deepEqual(cards, apps.map(({ id, priority }) => ({ id, priority })));
+  assert.equal(cards.length, 8);
+  assert.deepEqual(cards.slice(0, 7), [
+    { id: 'deepcleanup-ios', priority: 1 },
+    { id: 'deepcleanup-mac', priority: 2 },
+    { id: 'focuslock', priority: 3 },
+    { id: 'longshot', priority: 4 },
+    { id: 'lifelog', priority: 5 },
+    { id: 'ratepilot', priority: 6 },
+    { id: 'stamp-studio', priority: 7 },
+  ]);
+  assert.deepEqual(cards[7], { id: 'x-autonomy-countdown', priority: 8 });
 });
 
-test('gives every product card its exact App Store destination', () => {
-  for (const app of apps) {
-    const cardPattern = new RegExp(
-      `<article[^>]+data-app="${app.id}"[\\s\\S]*?<\\/article>`,
-    );
-    const card = html.match(cardPattern)?.[0];
+test('publishes the eighth Mac app with its App Store link and local icon', () => {
+  const card = html.match(/<article[^>]+data-app="x-autonomy-countdown"[\s\S]*?<\/article>/)?.[0];
 
-    assert.ok(card, `missing card for ${app.id}`);
-    assert.ok(card.includes(`href="${app.href}"`), `missing App Store link for ${app.id}`);
-    assert.ok(card.includes('target="_blank"'), `missing new-tab behavior for ${app.id}`);
-    assert.ok(card.includes('rel="noopener noreferrer"'), `missing safe external-link rel for ${app.id}`);
-  }
+  assert.ok(card, 'missing X自主倒计时 card');
+  assert.ok(card.includes('X自主倒计时'));
+  assert.ok(card.includes('Mac · 效率提升'));
+  assert.ok(card.includes(`href="${countdownStoreUrl}"`));
+  assert.ok(card.includes('life-coach/assets/icons/x-autonomy-countdown.png'));
 });
 
-test('keeps the featured conversion path focused on DeepCleanup for iPhone', () => {
-  const featured = html.match(/<section[^>]+data-featured-app="deepcleanup-ios"[\s\S]*?<\/section>/)?.[0];
-
-  assert.ok(featured, 'missing featured DeepCleanup section');
-  assert.ok(featured.includes(apps[0].href));
-  assert.ok(featured.includes('Free up iPhone storage'));
+test('updates the visible portfolio count to eight', () => {
+  assert.ok(html.includes('8 款 App'));
+  assert.ok(html.includes('8款 App 运营'));
+  assert.ok(!html.includes('阳明科技 7 款 App 产品矩阵'));
 });
 
 test('ships every local image referenced by the homepage', () => {
   const sources = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map((match) => match[1]);
 
-  assert.ok(sources.length >= 5);
+  assert.ok(sources.length >= 8);
   for (const source of sources) {
-    assert.ok(fs.existsSync(path.join(publicDir, source)), `missing image: ${source}`);
+    assert.ok(fs.existsSync(path.join(rootDir, source)), `missing image: ${source}`);
   }
-});
-
-test('uses the original 1024px artwork for all five app icons', () => {
-  const iconFiles = [
-    'deepcleanup-ios.png',
-    'deepcleanup-mac.png',
-    'focuslock.png',
-    'longshot.png',
-    'lifelog.png',
-  ];
-
-  for (const iconFile of iconFiles) {
-    const png = fs.readFileSync(path.join(publicDir, 'assets', 'icons', iconFile));
-    assert.equal(png.readUInt32BE(16), 1024, `${iconFile} width`);
-    assert.equal(png.readUInt32BE(20), 1024, `${iconFile} height`);
-  }
-});
-
-test('keeps the social preview at the declared Open Graph dimensions', () => {
-  const png = fs.readFileSync(path.join(publicDir, 'assets', 'homepage-og.png'));
-  assert.equal(png.readUInt32BE(16), 1200);
-  assert.equal(png.readUInt32BE(20), 630);
-});
-
-test('presents the X profile and current AI-native positioning instead of the old resume link', () => {
-  assert.ok(html.includes('href="https://x.com/x_autonomy"'));
-  assert.ok(html.includes('X · @x_autonomy'));
-  assert.ok(html.includes('AI-native iOS/FDE engineer. I help founders ship AI apps to the App Store with subscriptions, paywalls, analytics, and automation. Building A19 + AI Growth OS.'));
-  assert.ok(!html.includes('personGithub.html'));
-  assert.ok(!html.includes('Résumé'));
-});
-
-test('keeps the public homepage English-only', () => {
-  assert.equal(/[\u3400-\u9fff]/u.test(html), false);
 });
