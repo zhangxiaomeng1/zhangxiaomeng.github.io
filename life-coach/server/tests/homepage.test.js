@@ -15,7 +15,7 @@ test('keeps the original homepage sections and service architecture', () => {
   assert.ok(html.includes('三档独立服务'));
 });
 
-test('adds X自主倒计时 as the eighth app without reordering the original seven', () => {
+test('adds X Autonomy Countdown as the eighth app without reordering the original seven', () => {
   const cards = [...html.matchAll(/<article[^>]+class="[^"]*app-card[^"]*"[^>]*data-app="([^"]+)"[^>]*data-priority="([^"]+)"/g)]
     .map((match) => ({ id: match[1], priority: Number(match[2]) }));
 
@@ -35,8 +35,8 @@ test('adds X自主倒计时 as the eighth app without reordering the original se
 test('publishes the eighth Mac app with its App Store link and local icon', () => {
   const card = html.match(/<article[^>]+data-app="x-autonomy-countdown"[\s\S]*?<\/article>/)?.[0];
 
-  assert.ok(card, 'missing X自主倒计时 card');
-  assert.ok(card.includes('X自主倒计时'));
+  assert.ok(card, 'missing X Autonomy Countdown card');
+  assert.ok(card.includes('X Autonomy Countdown'));
   assert.ok(card.includes('Mac · 效率提升'));
   assert.ok(card.includes(`href="${countdownStoreUrl}"`));
   assert.ok(card.includes('life-coach/assets/icons/x-autonomy-countdown.png'));
