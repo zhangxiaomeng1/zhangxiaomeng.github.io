@@ -56,3 +56,19 @@ test('ships every local image referenced by the homepage', () => {
     assert.ok(fs.existsSync(path.join(rootDir, source)), `missing image: ${source}`);
   }
 });
+
+test('publishes linked privacy, terms, and privacy supplement pages', () => {
+  const privacy = fs.readFileSync(path.join(rootDir, 'life-coach', 'privacy.html'), 'utf8');
+  const terms = fs.readFileSync(path.join(rootDir, 'life-coach', 'terms.html'), 'utf8');
+  const supplement = fs.readFileSync(path.join(rootDir, 'life-coach', 'privacy-supplement.html'), 'utf8');
+
+  assert.ok(html.includes('life-coach/privacy.html'));
+  assert.ok(html.includes('life-coach/privacy-supplement.html'));
+  assert.ok(html.includes('life-coach/terms.html'));
+  assert.ok(privacy.includes('privacy-supplement.html'));
+  assert.ok(privacy.includes('terms.html'));
+  assert.ok(terms.includes('privacy.html'));
+  assert.ok(terms.includes('privacy-supplement.html'));
+  assert.ok(supplement.includes('privacy.html'));
+  assert.ok(supplement.includes('terms.html'));
+});
