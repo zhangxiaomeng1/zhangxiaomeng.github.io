@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="description" content="砖块冒险：一个可以在浏览器里直接玩的原创像素横版平台游戏。" />
+  <title>砖块冒险 · 可玩的网页小游戏</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="game-header">
+      <a class="back-link" href="../" aria-label="返回北京阳明九哈科技主页">← 返回主页</a>
+      <div class="game-title">
+        <span class="title-mark" aria-hidden="true">✦</span>
+        <div><span class="eyebrow">BROWSER ARCADE / 01</span><h1>砖块冒险</h1></div>
+      </div>
+      <button class="icon-button" id="pauseButton" type="button" aria-label="暂停游戏" title="暂停游戏">Ⅱ</button>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A SMALL PLAYABLE EXPERIMENT</p>
+          <h2 id="page-title">顶出金币，<em>一路过关。</em></h2>
+        </div>
+        <p class="intro-copy">一款原创像素横版闯关游戏。踩过小怪，穿过浮岛，在终点旗帜前把这一关跑完。</p>
+      </section>
+
+      <section class="game-card" aria-label="砖块冒险游戏区">
+        <div class="hud">
+          <div class="hud-item"><span class="hud-label">SCORE</span><strong id="score">000000</strong></div>
+          <div class="hud-item"><span class="hud-label">COINS</span><strong><span class="coin-mini">●</span> <span id="coins">00</span></strong></div>
+          <div class="hud-item"><span class="hud-label">LIVES</span><strong id="lives">♥♥♥</strong></div>
+          <div class="hud-item hud-time"><span class="hud-label">TIME</span><strong id="time">180</strong></div>
+          <button class="reset-button" id="resetButton" type="button">重开这一局 ↻</button>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="960" height="540" aria-label="砖块冒险游戏画面"></canvas>
+          <div class="game-overlay" id="startOverlay">
+            <div class="overlay-panel">
+              <span class="pixel-badge">WORLD 01 · 1-1</span>
+              <h3>准备好了吗？</h3>
+              <p>把角色送到终点旗帜。砖块下面藏着惊喜。</p>
+              <button class="primary-button" id="startButton" type="button">开始冒险 <span>→</span></button>
+              <div class="overlay-hint">键盘：← → / A D 移动 · 空格跳跃</div>
+            </div>
+          </div>
+          <div class="game-overlay is-hidden" id="resultOverlay">
+            <div class="overlay-panel">
+              <span class="pixel-badge" id="resultBadge">LEVEL CLEAR</span>
+              <h3 id="resultTitle">漂亮过关！</h3>
+              <p id="resultCopy">你把这一关跑完了。</p>
+              <button class="primary-button" id="resultButton" type="button">再玩一次 <span>↻</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-footer">
+          <div class="controls-note"><span class="key">←</span><span class="key">→</span><span>移动</span><span class="key key-wide">SPACE</span><span>跳跃</span></div>
+          <p>提示：连续顶问号箱，会让隐藏金币跳出来。</p>
+        </div>
+
+        <div class="touch-controls" aria-label="触控操作">
+          <div class="touch-group"><button class="touch-button" data-key="left" aria-label="向左移动">←</button><button class="touch-button" data-key="right" aria-label="向右移动">→</button></div>
+          <button class="touch-button jump-button" data-key="jump" aria-label="跳跃">↑ <span>跳跃</span></button>
+        </div>
+      </section>
+
+      <section class="feature-strip" aria-label="游戏玩法">
+        <article><span class="feature-number">01</span><h3>顶砖块</h3><p>问号箱会给你金币，普通砖块则会被撞出清脆的反馈。</p></article>
+        <article><span class="feature-number">02</span><h3>踩小怪</h3><p>从上方落下可以击败敌人；正面碰撞会损失一条生命。</p></article>
+        <article><span class="feature-number">03</span><h3>找旗帜</h3><p>别只顾着收集，越过最后一座浮岛，终点就在前方。</p></article>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span>一个小小的浏览器实验</span><a href="../">北京阳明九哈科技 ↗</a></footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
