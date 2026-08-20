@@ -20,8 +20,10 @@
   <meta name="twitter:description" content="教你把 App 做出来、上架并卖出去。" />
   <meta name="twitter:image" content="life-coach/assets/homepage-og.png" />
   <link rel="icon" type="image/png" href="life-coach/assets/favicon.png" />
+  <link rel="preload" as="image" href="life-coach/assets/icons/deepcleanup-ios.png" fetchpriority="high" />
   <link rel="stylesheet" href="life-coach/style.css" />
   <link rel="stylesheet" href="company.css" />
+  <script src="homepage.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -60,29 +62,29 @@
         <div class="stage-orbit orbit-two"></div>
 
         <a class="stage-icon stage-main" href="#app-deepcleanup" aria-label="查看 DeepCleanup">
-          <img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" />
+          <img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" width="1024" height="1024" fetchpriority="high" />
           <span class="stage-label">DeepCleanup</span>
         </a>
         <a class="stage-icon stage-mac" href="#app-deepcleanup-mac" aria-label="查看 DeepCleanup for Mac">
-          <img src="life-coach/assets/icons/deepcleanup-mac.png" alt="DeepCleanup for Mac 图标" />
+          <img src="life-coach/assets/icons/deepcleanup-mac.png" alt="DeepCleanup for Mac 图标" width="1024" height="1024" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-focus" href="#app-focuslock" aria-label="查看 FocusLock">
-          <img src="life-coach/assets/icons/focuslock.png" alt="FocusLock 图标" />
+          <img src="life-coach/assets/icons/focuslock.png" alt="FocusLock 图标" width="1024" height="1024" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-shot" href="#app-longshot" aria-label="查看 LongShot">
-          <img src="life-coach/assets/icons/longshot.png" alt="LongShot 图标" />
+          <img src="life-coach/assets/icons/longshot.png" alt="LongShot 图标" width="1024" height="1024" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-life" href="#app-lifelog" aria-label="查看 LifeLog">
-          <img src="life-coach/assets/icons/lifelog.png" alt="LifeLog 图标" />
+          <img src="life-coach/assets/icons/lifelog.png" alt="LifeLog 图标" width="1024" height="1024" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-ratepilot" href="#app-ratepilot" aria-label="查看 RatePilot">
-          <img src="life-coach/assets/icons/ratepilot.png" alt="RatePilot 图标" />
+          <img src="life-coach/assets/icons/ratepilot.png" alt="RatePilot 图标" width="512" height="512" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-stamp" href="#app-stamp" aria-label="查看 Stamp Studio">
-          <img src="life-coach/assets/icons/stamp-studio.png" alt="Stamp Studio 图标" />
+          <img src="life-coach/assets/icons/stamp-studio.png" alt="Stamp Studio 图标" width="512" height="512" loading="lazy" decoding="async" />
         </a>
         <a class="stage-icon stage-countdown" href="#app-x-autonomy-countdown" aria-label="查看 X Autonomy Countdown">
-          <img src="life-coach/assets/icons/x-autonomy-countdown.png" alt="X Autonomy Countdown 图标" />
+          <img src="life-coach/assets/icons/x-autonomy-countdown.png" alt="X Autonomy Countdown 图标" width="512" height="512" loading="lazy" decoding="async" />
         </a>
 
         <div class="stage-caption" aria-hidden="true">
@@ -103,7 +105,7 @@
     <section class="featured" id="business" aria-labelledby="business-title">
       <div class="featured-copy">
         <div class="featured-brand">
-          <img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" />
+          <img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" width="1024" height="1024" loading="lazy" decoding="async" />
           <div><strong>AI App 产品研发</strong><span>从需求到上架与增长</span></div>
         </div>
         <p class="overline">公司业务 · AI × Mobile</p>
@@ -151,7 +153,7 @@
       </div>
 
       <div class="service-grid">
-        <a class="service-card service-card-link service-diagnosis" href="ios-services/diagnosis.html" aria-label="查看 App 单点诊断详情">
+        <a class="service-card service-card-link" href="ios-services/diagnosis.html" aria-label="查看 App 单点诊断详情">
           <div class="service-price">¥299</div>
           <h3>App 单点诊断</h3>
           <p class="service-tag">已有 App，只卡一个明确问题 · 最多 70 分钟</p>
@@ -164,7 +166,7 @@
           <span class="service-buy">查看「诊断」详情 <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="service-card service-card-link service-mvp" href="ios-services/mvp.html" aria-label="查看 AI iOS MVP 开发陪跑详情">
+        <a class="service-card service-card-link" href="ios-services/mvp.html" aria-label="查看 AI iOS MVP 开发陪跑详情">
           <div class="service-price">¥10,000</div>
           <h3>AI iOS MVP 0→1 开发陪跑</h3>
           <p class="service-tag">从想法推进到内部 TestFlight · 连续 5 个工作日</p>
@@ -177,7 +179,7 @@
           <span class="service-buy">查看「MVP」详情 <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="service-card service-card-link service-launch" href="ios-services/launch.html" aria-label="查看 AI iOS 七日上架冲刺详情">
+        <a class="service-card service-card-link" href="ios-services/launch.html" aria-label="查看 AI iOS 七日上架冲刺详情">
           <div class="service-price">¥18,000</div>
           <h3>AI iOS 七日上架冲刺</h3>
           <p class="service-tag">范围收敛的简单工具 App · 连续 7 个自然日</p>
@@ -201,9 +203,9 @@
       </div>
 
       <div class="app-grid">
-        <article class="app-card card-clean-ios" id="app-deepcleanup" data-app="deepcleanup-ios" data-priority="1">
+        <article class="app-card card-clean-ios" id="app-deepcleanup">
           <div class="card-number">01</div>
-          <div class="card-icon"><img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" /></div>
+          <div class="card-icon"><img src="life-coach/assets/icons/deepcleanup-ios.png" alt="DeepCleanup 图标" width="1024" height="1024" loading="lazy" decoding="async" /></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone · AI 工具</span>
             <h3>DeepCleanup</h3>
@@ -212,11 +214,11 @@
           <a class="card-link" href="https://apps.apple.com/us/app/deepcleanup-photo-cleaner/id6777354576" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-clean-mac" id="app-deepcleanup-mac" data-app="deepcleanup-mac" data-priority="2">
+        <article class="app-card card-clean-mac" id="app-deepcleanup-mac">
           <div class="card-number">02</div>
           <div class="mac-window" aria-hidden="true">
             <div class="window-bar"><i></i><i></i><i></i></div>
-            <img src="life-coach/assets/icons/deepcleanup-mac.png" alt="" />
+            <img src="life-coach/assets/icons/deepcleanup-mac.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
             <div class="window-meter"><span></span></div>
             <small>43.2 GB can be reclaimed</small>
           </div>
@@ -228,9 +230,9 @@
           <a class="card-link" href="https://apps.apple.com/us/app/deepcleanup/id6777946333?mt=12" target="_blank" rel="noopener noreferrer">Mac App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-focus" id="app-focuslock" data-app="focuslock" data-priority="3">
+        <article class="app-card card-focus" id="app-focuslock">
           <div class="card-number">03</div>
-          <div class="focus-orbit" aria-hidden="true"><span><img src="life-coach/assets/icons/focuslock.png" alt="" /></span></div>
+          <div class="focus-orbit" aria-hidden="true"><span><img src="life-coach/assets/icons/focuslock.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone · 效率提升</span>
             <h3>FocusLock</h3>
@@ -239,9 +241,9 @@
           <a class="card-link" href="https://apps.apple.com/us/app/focuslock-app-blocker/id6781309683" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-shot" id="app-longshot" data-app="longshot" data-priority="4">
+        <article class="app-card card-shot" id="app-longshot">
           <div class="card-number">04</div>
-          <div class="shot-stack" aria-hidden="true"><span></span><span></span><span><img src="life-coach/assets/icons/longshot.png" alt="" /></span></div>
+          <div class="shot-stack" aria-hidden="true"><span></span><span></span><span><img src="life-coach/assets/icons/longshot.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone · 效率提升</span>
             <h3>LongShot</h3>
@@ -250,10 +252,10 @@
           <a class="card-link" href="https://apps.apple.com/us/app/longshot-screenshot-stitch/id6745420963" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-life" id="app-lifelog" data-app="lifelog" data-priority="5">
+        <article class="app-card card-life" id="app-lifelog">
           <div class="card-number">05</div>
           <div class="life-date" aria-hidden="true"><span>24</span><small>days to remember</small></div>
-          <div class="card-icon life-icon"><img src="life-coach/assets/icons/lifelog.png" alt="LifeLog 图标" /></div>
+          <div class="card-icon life-icon"><img src="life-coach/assets/icons/lifelog.png" alt="LifeLog 图标" width="1024" height="1024" loading="lazy" decoding="async" /></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone · 个人记录</span>
             <h3>LifeLog</h3>
@@ -262,9 +264,9 @@
           <a class="card-link" href="https://apps.apple.com/us/app/lifelog-countdown-journal/id1610261169" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-ratepilot" id="app-ratepilot" data-app="ratepilot" data-priority="6">
+        <article class="app-card card-ratepilot" id="app-ratepilot">
           <div class="card-number">06</div>
-          <div class="new-app-icon icon-ratepilot" aria-hidden="true"><img src="life-coach/assets/icons/ratepilot.png" alt="" /></div>
+          <div class="new-app-icon" aria-hidden="true"><img src="life-coach/assets/icons/ratepilot.png" alt="" width="512" height="512" loading="lazy" decoding="async" /></div>
           <div class="card-copy">
             <span class="platform-pill">海外 · 开发者工具</span>
             <h3>RatePilot</h3>
@@ -273,9 +275,9 @@
           <a class="card-link" href="https://apps.apple.com/us/app/ratepilot-fx-pricing/id6782362394" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-stamp" id="app-stamp" data-app="stamp-studio" data-priority="7">
+        <article class="app-card card-stamp" id="app-stamp">
           <div class="card-number">07</div>
-          <div class="new-app-icon icon-stamp" aria-hidden="true"><img src="life-coach/assets/icons/stamp-studio.png" alt="" /></div>
+          <div class="new-app-icon" aria-hidden="true"><img src="life-coach/assets/icons/stamp-studio.png" alt="" width="512" height="512" loading="lazy" decoding="async" /></div>
           <div class="card-copy">
             <span class="platform-pill">iPhone / iPad · 效率工具</span>
             <h3>Stamp Studio</h3>
@@ -284,9 +286,9 @@
           <a class="card-link" href="https://apps.apple.com/br/app/stamp-studio/id6790093959" target="_blank" rel="noopener noreferrer">App Store 查看 <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="app-card card-countdown" id="app-x-autonomy-countdown" data-app="x-autonomy-countdown" data-priority="8">
+        <article class="app-card card-countdown" id="app-x-autonomy-countdown">
           <div class="card-number">08</div>
-          <div class="card-icon"><img src="life-coach/assets/icons/x-autonomy-countdown.png" alt="X Autonomy Countdown 图标" /></div>
+          <div class="card-icon"><img src="life-coach/assets/icons/x-autonomy-countdown.png" alt="X Autonomy Countdown 图标" width="512" height="512" loading="lazy" decoding="async" /></div>
           <div class="card-copy">
             <span class="platform-pill">Mac · 效率提升</span>
             <h3>X Autonomy Countdown</h3>
@@ -334,7 +336,7 @@
         </div>
       </div>
       <figure class="wechat-card">
-        <img src="life-coach/assets/wechat-qr.jpg" alt="微信二维码，扫码添加北京阳明九哈科技有限公司创始人" decoding="async" />
+        <img src="life-coach/assets/wechat-qr.jpg" alt="微信二维码，扫码添加北京阳明九哈科技有限公司创始人" width="700" height="700" loading="lazy" decoding="async" />
         <figcaption>
           <strong>微信联系</strong>
           <span>扫码添加微信<br />17600383816（微信同号）</span>
@@ -351,20 +353,5 @@
     </nav>
     <p class="copyright">© 2026 北京阳明九哈科技有限公司 · Built for useful products.</p>
   </footer>
-  <script>
-    document.querySelectorAll('[data-copy-text]').forEach((button) => {
-      button.addEventListener('click', async () => {
-        const value = button.dataset.copyText;
-        const status = document.getElementById(button.getAttribute('aria-describedby'));
-        try {
-          await navigator.clipboard.writeText(value);
-          status.textContent = '已复制';
-        } catch {
-          status.textContent = `微信号：${value}`;
-        }
-        window.setTimeout(() => { status.textContent = ''; }, 2200);
-      });
-    });
-  </script>
 </body>
 </html>
