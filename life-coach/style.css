@@ -302,7 +302,7 @@ h1 em, h2 em { color: var(--muted); font-style: normal; font-weight: inherit; }
 .stat-left { left: 0; top: 26%; }.stat-right { right: -12px; bottom: 18%; }
 
 .apps { width: min(1180px, calc(100% - 40px)); margin: 0 auto 170px; }
-.services-section, .apps, .about, .contact { content-visibility: auto; contain-intrinsic-size: 900px; }
+.services-section, .about, .contact { content-visibility: auto; contain-intrinsic-size: 900px; }
 .section-heading { max-width: 850px; margin: 0 0 62px; }
 .section-heading h2 { margin-bottom: 24px; }
 .section-heading > p:last-child { max-width: 640px; color: var(--muted); font-size: 18px; line-height: 1.55; }
